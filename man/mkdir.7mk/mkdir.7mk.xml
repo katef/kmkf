@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>mkdir</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refclass>mk</refclass>
+		<refname>mkdir</refname>
+		<refpurpose>Create directories</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<synopsis>.include &lt;mkdir.mk&gt;</synopsis>
+	</refsynopsisdiv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Recursively create directories.</para>
+	</refsection>
+
+	<refsection>
+		<title>Input</title>
+
+<synopsis>MKDIR ?= mkdir
+
+DIR += <replaceable>dir</replaceable></synopsis>
+	</refsection>
+
+	<refsection>
+		<title>Output</title>
+
+		<synopsis>mkdir::</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.7mk;, &mkdir;.</para>
+	</refsection>
+</refentry>
+

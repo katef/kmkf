@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>top</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refclass>mk</refclass>
+		<refname>top</refname>
+		<refpurpose>Create directories</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<synopsis>.include &quot;../mk/top.mk&quot;</synopsis>
+	</refsynopsisdiv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>&top.7mk; provides an entry point for subdirectories such that
+			running &make; in a directory with a <filename>Makefile</filename>
+			will &cd; to the top of the tree, and run &make; from the top-level
+			directory instead.</para>
+
+		<para>The effect is that dependencies for the entire tree will be re-built,
+			not just those affecting the current directory.</para>
+
+		<para>Note that &top.7mk; is included from each directory's own
+			<filename>Makefile</filename>, using a relative path of the form
+			<code>&quot;../mk/top.mk&quot;</code>, rather than from the top-level
+			<filename>Makefile</filename> using the <code>&lt;xyz.mk&gt;</code>
+			form.</para>
+	</refsection>
+
+	<refsection>
+		<title>Input</title>
+
+<synopsis>TOP ?= ..
+CD  ?= cd</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>Output</title>
+
+		<synopsis>all .DEFAULT:</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.7mk;.</para>
+	</refsection>
+</refentry>
+

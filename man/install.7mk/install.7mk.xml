@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>install</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refclass>mk</refclass>
+		<refname>install</refname>
+		<refpurpose>Install files and directories</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<synopsis>.include &lt;install.mk&gt;</synopsis>
+	</refsynopsisdiv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Copy files and directories to a target directory. The target directory
+			for a given path defaults to <code><replaceable>path:H</replaceable></code>
+			and may be overridden by explicitly setting
+			<varname>DIR_<replaceable>path</replaceable></varname>
+			for a particular source path.</para>
+
+		<para>File and directory modes are set as part of installation.
+			Modes default to <constant>644</constant> and <constant>755</constant>
+			for files and directories respectively,
+			and may be overridden by explicitly setting
+			<varname>MODE_<replaceable>path</replaceable></varname>
+			for a particular source path.</para>
+
+		<para>There is no dependency on installed files; paths are re-copied
+			each time the <code>install::</code> target is called.</para>
+	</refsection>
+
+	<refsection>
+		<title>Input</title>
+
+<synopsis>INSTALL ?= install
+
+STAGE_BUILD += <replaceable>path_build</replaceable>
+STAGE_COPY  += <replaceable>path_copy</replaceable>
+
+DIR_<replaceable>path</replaceable>  ?= ${path:H}
+
+MODE_<replaceable>file</replaceable> ?= 644
+MODE_<replaceable>dir</replaceable>  ?= 755
+
+${BUILD}/<replaceable>path_build</replaceable>:
+<replaceable>path_copy</replaceable>:</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>Output</title>
+
+		<synopsis>install::</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.7mk;, &install;, &chmod;.</para>
+	</refsection>
+</refentry>
+

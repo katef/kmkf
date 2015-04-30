@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>sid</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refclass>mk</refclass>
+		<refname>sid</refname>
+		<refpurpose>Generate &sid; parser</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<synopsis>.include &lt;sid.mk&gt;</synopsis>
+	</refsynopsisdiv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Generate a parser from &sid; source.
+			The generated code is C90.</para>
+	</refsection>
+
+	<refsection>
+		<title>Input</title>
+
+<synopsis>SID       ?= sid
+LX_CFLAGS +=
+
+LEXER     += <replaceable>name</replaceable>.sid
+
+<replaceable>name</replaceable>.sid:</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>Output</title>
+
+<synopsis>test::
+
+gen:: <replaceable>name</replaceable>.c
+gen:: <replaceable>name</replaceable>.h</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.7mk;, &sid;.</para>
+
+		<para>&tendra.url;.</para>
+	</refsection>
+</refentry>
+

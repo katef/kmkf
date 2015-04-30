@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>ar</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refclass>mk</refclass>
+		<refname>ar</refname>
+		<refpurpose>Archive object files into a static library</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<synopsis>.include &lt;ar.mk&gt;</synopsis>
+	</refsynopsisdiv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Archive object files into an &ar; archive,
+			also known as a <firstterm>statically linked</firstterm> library.
+			See &so.7mk; to produce a <firstterm>dynamically linked</firstterm> library.</para>
+
+		<para>For sake of convenient linking, archives are expected to be named
+			beginning with &ldquo;<literal>lib</literal>&rdquo;,
+			in the form <code>lib<replaceable>name</replaceable>.a</code>,
+			such that they may be resolved by the linker as
+			<code>-l<replaceable>name</replaceable></code>.</para>
+
+		<para>It is recommended to collate object files into one
+			partially-linked object file by way of &part.7mk;,
+			and then to archive that single file.
+			This avoids passing possibly conflicting filenames to &ar;
+			without relying on full path names, which not all
+			implementations support.</para>
+	</refsection>
+
+	<refsection>
+		<title>Input</title>
+
+<synopsis>BUILD   := <replaceable>dir</replaceable>
+
+AR      ?= ar
+RANLIB  ?= ar s
+ARFLAGS ?= cr
+
+LIB     += lib<replaceable>name</replaceable>
+
+${BUILD}/lib/lib<replaceable>name</replaceable>.o:</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>Output</title>
+
+<synopsis>CLEAN += <replaceable>...</replaceable>
+
+lib:: ${BUILD}/lib/lib<replaceable>name</replaceable>.a</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.7mk;, &so.7mk;, &part.7mk;, &clean.7mk;, &install.7mk;, &ar;.</para>
+	</refsection>
+</refentry>
+

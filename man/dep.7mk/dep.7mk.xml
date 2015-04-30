@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>dep</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refclass>mk</refclass>
+		<refname>dep</refname>
+		<refpurpose>Dependencies for source files</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<synopsis>.include &lt;dep.mk&gt;</synopsis>
+	</refsynopsisdiv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Generate rules for source files to depend on their
+			respective dependencies.
+			For <filename>.c</filename> files, these are typically dependencies on
+			headers.</para>
+
+		<para>Dependencies are found by executing an external program,
+			specified by <varname>DEP</varname>.
+			Currently only <filename>.c</filename> files are supported.</para>
+
+		<para>The external program <varname>DEP</varname> writes out makefile rules
+			to a file under <varname>BUILD</varname>.
+			These rules are used by an automated <code>.include</code>
+			directive.</para>
+	</refsection>
+
+	<refsection>
+		<title>Input</title>
+
+<synopsis>BUILD  := <replaceable>dir</replaceable>
+DEP    ?= ${CC} -M
+
+DFLAGS ?= -MT <remark># provided per ${CC}</remark>
+
+INCDIR += <replaceable>dir</replaceable>
+SRC    += <replaceable>src/name</replaceable>.c</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>Output</title>
+
+		<synopsis>CLEAN  += <replaceable>...</replaceable>
+
+dep::
+<replaceable>src/name</replaceable>.c: <replaceable>...</replaceable></synopsis>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.7mk;, &clean.7mk;, &cc;.</para>
+	</refsection>
+</refentry>
+

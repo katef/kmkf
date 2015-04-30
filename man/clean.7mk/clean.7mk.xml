@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>clean</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refclass>mk</refclass>
+		<refname>clean</refname>
+		<refpurpose>Remove built targets</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<synopsis>.include &lt;clean.mk&gt;</synopsis>
+	</refsynopsisdiv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Remove files and directories which have been built.</para>
+
+		<para>The <varname>CLEAN</varname> list is populated automatically
+			by each <filename>.mk</filename> makefile,
+			and is not typically set by user makefiles.</para>
+	</refsection>
+
+	<refsection>
+		<title>Input</title>
+
+<synopsis>BUILD  := <replaceable>dir</replaceable>
+
+RMDIR  ?= rm -r
+REMOVE ?= rm -f
+
+DIR    += <replaceable>dir</replaceable>
+CLEAN  += <replaceable>file</replaceable></synopsis>
+	</refsection>
+
+	<refsection>
+		<title>Output</title>
+
+		<synopsis>clean::</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.7mk;, &rm;.</para>
+	</refsection>
+</refentry>
+

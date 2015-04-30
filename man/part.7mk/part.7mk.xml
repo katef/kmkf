@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>part</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refclass>mk</refclass>
+		<refname>part</refname>
+		<refpurpose>Partially link objects</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<synopsis>.include &lt;part.mk&gt;</synopsis>
+	</refsynopsisdiv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Partially link multiple object files into one object file.</para>
+
+		<para>Libraries specified in the <varname>LIB</varname> list
+			are linked as partial objects,
+			by automatically populating <varname>PART</varname> with each
+			<replaceable>lib</replaceable> name.
+			This is intended to provide convenient object files
+			suitable for use by &ar.7mk; and &so.7mk;.</para>
+	</refsection>
+
+	<refsection>
+		<title>Input</title>
+
+<synopsis>BUILD    := <replaceable>dir</replaceable>
+
+LD       ?= ld
+LDRFLAGS ?=
+
+LIB      += <replaceable>lib</replaceable>
+PART     += <replaceable>part</replaceable>
+
+<replaceable>obj</replaceable>.o:</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>Output</title>
+
+<synopsis>CLEAN += <replaceable>...</replaceable>
+
+${BUILD}/lib/${part}.o: <replaceable>obj</replaceable>.o ...</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.7mk;, &clean.7mk;, &ar.7mk;, &so.7mk;, &ld;.</para>
+	</refsection>
+</refentry>
+

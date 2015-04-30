@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>so</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refclass>mk</refclass>
+		<refname>so</refname>
+		<refpurpose>Link object files into a shared library</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<synopsis>.include &lt;so.mk&gt;</synopsis>
+	</refsynopsisdiv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Link object files into a <filename>.so</filename> shared object,
+			also known as a <firstterm>dynamically linked</firstterm> library.
+			See &ar.7mk; to produce a <firstterm>statically linked</firstterm> library.</para>
+
+		<para>For sake of convenient linking, libraries are expected to be named
+			beginning with &ldquo;<literal>lib</literal>&rdquo;,
+			in the form <code>lib<replaceable>name</replaceable>.so</code>,
+			such that they may be resolved by the linker as
+			<code>-l<replaceable>name</replaceable></code>.</para>
+	</refsection>
+
+	<refsection>
+		<title>Input</title>
+
+<synopsis>BUILD    := <replaceable>dir</replaceable>
+
+LD       ?= ld
+LDSFLAGS ?= -shared
+
+LIB      += lib<replaceable>name</replaceable>
+
+${BUILD}/lib/lib<replaceable>name</replaceable>.o:</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>Output</title>
+
+<synopsis>CLEAN += <replaceable>...</replaceable>
+
+lib:: ${BUILD}/lib/lib<replaceable>name</replaceable>.so</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.7mk;, &ar.7mk;, &part.7mk;, &clean.7mk;, &install.7mk;, &ld;.</para>
+	</refsection>
+</refentry>
+

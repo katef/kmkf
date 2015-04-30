@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>obj</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refclass>mk</refclass>
+		<refname>obj</refname>
+		<refpurpose>Compile source files to binary objects</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<synopsis>.include &lt;obj.mk&gt;</synopsis>
+	</refsynopsisdiv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Compile source files to binary objects.</para>
+
+		<para>Compilation flags default differently per compiler
+			name specified by <varname>CC</varname>.
+			The currently recognised compilers are <code>gcc</code> and <code>clang</code>.
+			<varname>CFLAGS</varname> defaults to per-compiler settings for ISO C90.
+			Individual <varname>CFLAGS</varname> specific to a particular
+			source file may be specified by
+			<varname>CFLAGS<replaceable>name</replaceable>.c</varname>
+			for each source file.</para>
+	</refsection>
+
+	<refsection>
+		<title>Options</title>
+
+		<variablelist>
+			<varlistentry>
+				<term><code>DEBUG</code></term>
+
+				<listitem>
+					<para>Add flags to <varname>CFLAGS</varname> to
+						enable debugging symbols in compiled objects.
+						This also sets optimisation flags accordingly.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</refsection>
+
+	<refsection>
+		<title>Input</title>
+
+		<!-- TODO: lang
+			<code>LANG<replaceable>name</replaceable>.c ?= C</code> (default)
+		-->
+
+<synopsis>BUILD   := <replaceable>dir</replaceable>
+
+CC      ?= cc
+
+INCDIR  += <replaceable>dir</replaceable>
+
+SRC     += <replaceable>name</replaceable>.c
+
+CFLAGS          += <replaceable>...</replaceable>
+CFLAGS<replaceable>name</replaceable>.c += <replaceable>...</replaceable>
+
+${BUILD}/<replaceable>name</replaceable>.c:</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>Output</title>
+
+<synopsis>CLEAN += <replaceable>...</replaceable>
+
+${BUILD}/<replaceable>name</replaceable>.o: <replaceable>name</replaceable>.c</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.7mk;, &clean.7mk;, &cc;.</para>
+	</refsection>
+</refentry>
+

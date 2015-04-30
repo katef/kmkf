@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>prog</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refclass>mk</refclass>
+		<refname>prog</refname>
+		<refpurpose>Link objects into an executable program</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<synopsis>.include &lt;prog.mk&gt;</synopsis>
+	</refsynopsisdiv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Link object files to produce an executable.</para>
+	</refsection>
+
+	<refsection>
+		<title>Options</title>
+
+		<variablelist>
+			<varlistentry>
+				<term><code>DEBUG</code></term>
+
+				<listitem>
+					<para>Don't strip symbols.
+						Symbols are stripped by default.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</refsection>
+
+	<refsection>
+		<title>Input</title>
+
+<synopsis>BUILD   := <replaceable>dir</replaceable>
+
+STRIP   ?= strip
+
+LFLAGS  ?=
+
+PROG    += <replaceable>name</replaceable>
+
+<replaceable>obj</replaceable>.o:</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>Output</title>
+
+<synopsis>CLEAN += <replaceable>...</replaceable>
+DIR   += <replaceable>...</replaceable>
+
+${BUILD}/bin/<replaceable>name</replaceable>: <replaceable>obj</replaceable>.o ...</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.7mk;, &so.7mk;, &part.7mk;, &clean.7mk;, &install.7mk;, &ar;.</para>
+	</refsection>
+</refentry>
+
