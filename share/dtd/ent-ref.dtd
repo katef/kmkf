@@ -1,0 +1,36 @@
+<!-- $Id$ -->
+
+<!ENTITY % vol.1 "<manvolnum>1</manvolnum>">
+<!ENTITY % vol.2 "<manvolnum>2</manvolnum>">
+<!ENTITY % vol.3 "<manvolnum>3</manvolnum>">
+<!ENTITY % vol.4 "<manvolnum>4</manvolnum>">
+<!ENTITY % vol.5 "<manvolnum>5</manvolnum>">
+<!ENTITY % vol.7 "<manvolnum>7</manvolnum>">
+<!ENTITY % vol.8 "<manvolnum>8</manvolnum>">
+
+<!ENTITY % vol.7mk "<manvolnum>7mk</manvolnum>">
+
+<!-- Other Section 1 -->
+<!ENTITY ar "<citerefentry role='dontlink'><refentrytitle>ar</refentrytitle> %vol.1;</citerefentry>">
+<!ENTITY cc "<citerefentry role='dontlink'><refentrytitle>cc</refentrytitle> %vol.1;</citerefentry>">
+<!ENTITY rm "<citerefentry role='dontlink'><refentrytitle>rm</refentrytitle> %vol.1;</citerefentry>">
+<!ENTITY chmod "<citerefentry role='dontlink'><refentrytitle>chmod</refentrytitle> %vol.1;</citerefentry>">
+<!ENTITY make "<citerefentry role='dontlink'><refentrytitle>make</refentrytitle> %vol.1;</citerefentry>">
+<!ENTITY mkdir "<citerefentry role='dontlink'><refentrytitle>mkdir</refentrytitle> %vol.1;</citerefentry>">
+<!ENTITY install "<citerefentry role='dontlink'><refentrytitle>install</refentrytitle> %vol.1;</citerefentry>">
+<!ENTITY ld "<citerefentry role='dontlink'><refentrytitle>ld</refentrytitle> %vol.1;</citerefentry>">
+<!ENTITY lx "<citerefentry role='dontlink'><refentrytitle>lx</refentrytitle> %vol.1;</citerefentry>">
+<!ENTITY sid "<citerefentry role='dontlink'><refentrytitle>sid</refentrytitle> %vol.1;</citerefentry>">
+
+<!-- kmkf section 7mk -->
+<!ENTITY ar.7mk "<citerefentry><refentrytitle>ar</refentrytitle> %vol.7mk;</citerefentry>">
+<!ENTITY kmkf.7mk "<citerefentry><refentrytitle>kmkf</refentrytitle> %vol.7mk;</citerefentry>">
+<!ENTITY install.7mk "<citerefentry><refentrytitle>install</refentrytitle> %vol.7mk;</citerefentry>">
+<!ENTITY clean.7mk "<citerefentry><refentrytitle>clean</refentrytitle> %vol.7mk;</citerefentry>">
+<!ENTITY part.7mk "<citerefentry><refentrytitle>part</refentrytitle> %vol.7mk;</citerefentry>">
+<!ENTITY so.7mk "<citerefentry><refentrytitle>so</refentrytitle> %vol.7mk;</citerefentry>">
+<!ENTITY top.7mk "<citerefentry><refentrytitle>top</refentrytitle> %vol.7mk;</citerefentry>">
+
+<!ENTITY libfsm.url "<ulink url='http://www.libfsm.org/'>http://www.libfsm.org/</ulink>">
+<!ENTITY tendra.url "<ulink url='http://www.tendra.org/'>http://www.tendra.org/</ulink>">
+
