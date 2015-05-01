@@ -38,10 +38,10 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>SID       ?= sid
-LX_CFLAGS +=
+<synopsis>SID        ?= sid
+SID_CFLAGS +=
 
-LEXER     += <replaceable>name</replaceable>.sid
+PARSER     += <replaceable>name</replaceable>.sid
 
 <replaceable>name</replaceable>.sid:</synopsis>
 	</refsection>
