@@ -52,7 +52,7 @@ LDRFLAGS ?=
 LIB      += <replaceable>lib</replaceable>
 PART     += <replaceable>part</replaceable>
 
-<replaceable>obj</replaceable>.o:</synopsis>
+<replaceable>obj</replaceable>.o ...:</synopsis>
 	</refsection>
 
 	<refsection>

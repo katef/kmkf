@@ -72,7 +72,7 @@ CC      ?= cc
 
 INCDIR  += <replaceable>dir</replaceable>
 
-SRC     += <replaceable>name</replaceable>.c ...
+SRC     += <replaceable>name</replaceable>.c
 
 CFLAGS          += <replaceable>...</replaceable>
 CFLAGS<replaceable>name</replaceable>.c += <replaceable>...</replaceable>

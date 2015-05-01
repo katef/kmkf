@@ -55,7 +55,7 @@ DEP    ?= ${CC} -M
 DFLAGS ?= -MT <remark># provided per ${CC}</remark>
 
 INCDIR += <replaceable>dir</replaceable>
-SRC    += <replaceable>src/name</replaceable>.c ...</synopsis>
+SRC    += <replaceable>src/name</replaceable>.c</synopsis>
 	</refsection>
 
 	<refsection>

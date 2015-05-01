@@ -60,7 +60,7 @@ LFLAGS  ?=
 
 PROG    += <replaceable>name</replaceable>
 
-<replaceable>obj</replaceable>.o:</synopsis>
+<replaceable>obj</replaceable>.o ...:</synopsis>
 	</refsection>
 
 	<refsection>
