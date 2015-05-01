@@ -45,7 +45,7 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>BUILD    := <replaceable>dir</replaceable>
+<synopsis>BUILD     = <replaceable>dir</replaceable>
 
 LD       ?= ld
 LDSFLAGS ?= -shared

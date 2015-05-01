@@ -52,7 +52,7 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>BUILD   := <replaceable>dir</replaceable>
+<synopsis>BUILD    = <replaceable>dir</replaceable>
 
 AR      ?= ar
 RANLIB  ?= ar s

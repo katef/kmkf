@@ -49,7 +49,7 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>BUILD  := <replaceable>dir</replaceable>
+<synopsis>BUILD   = <replaceable>dir</replaceable>
 DEP    ?= ${CC} -M
 
 DFLAGS ?= -MT <remark># provided per ${CC}</remark>

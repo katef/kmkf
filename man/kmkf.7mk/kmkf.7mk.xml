@@ -73,8 +73,7 @@
 
 				<listitem>
 					<para>Single items, which may contain whitespace.
-						Indicated as <code>?=</code> where optional and
-						<code>=</code> otherwise.
+						Indicated as <code>?=</code> where optional.
 						Optional variables have a default value,
 						which may be empty.</para>
 				</listitem>
