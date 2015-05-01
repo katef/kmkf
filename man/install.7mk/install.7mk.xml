@@ -31,7 +31,9 @@
 	<refsection>
 		<title>Description</title>
 
-		<para>Copy files and directories to a target directory. The target directory
+		<para>Copy files and directories to a target directory,
+			<varname>PREFIX</varname>.
+			The target subdirectory within <varname>PREFIX</varname>
 			for a given path defaults to <code><replaceable>path:H</replaceable></code>
 			and may be overridden by explicitly setting
 			<varname>DIR_<replaceable>path</replaceable></varname>
@@ -51,7 +53,9 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>INSTALL ?= install
+<synopsis>PREFIX   = <replaceable>dir</replaceable>
+
+INSTALL ?= install
 
 STAGE_BUILD += <replaceable>path_build</replaceable>
 STAGE_COPY  += <replaceable>path_copy</replaceable>
