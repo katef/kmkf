@@ -29,6 +29,7 @@
 <!ENTITY clean.7mk "<citerefentry><refentrytitle>clean</refentrytitle> %vol.7mk;</citerefentry>">
 <!ENTITY part.7mk "<citerefentry><refentrytitle>part</refentrytitle> %vol.7mk;</citerefentry>">
 <!ENTITY so.7mk "<citerefentry><refentrytitle>so</refentrytitle> %vol.7mk;</citerefentry>">
+<!ENTITY obj.7mk "<citerefentry><refentrytitle>obj</refentrytitle> %vol.7mk;</citerefentry>">
 <!ENTITY top.7mk "<citerefentry><refentrytitle>top</refentrytitle> %vol.7mk;</citerefentry>">
 
 <!ENTITY kmkf.url   "<ulink url='http://kmkf.elide.org/'>http://kmkf.elide.org/</ulink>">
