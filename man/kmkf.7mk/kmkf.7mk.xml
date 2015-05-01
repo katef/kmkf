@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>kmkf</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refname>kmkf</refname>
+		<refpurpose>Kate&rsquo;s Makefiles</refpurpose>
+	</refnamediv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>These manpages are written with the following
+			typographic conventions:</para>
+
+		<variablelist>
+			<varlistentry>
+				<term><replaceable>xyz</replaceable></term>
+
+				<listitem>
+					<para>Placeholder to be substituted for a value.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><replaceable>...</replaceable></term>
+
+				<listitem>
+					<para>Placeholder for elided items,
+						where the exact value is not relevant.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code>xyz ...</code></term>
+
+				<listitem>
+					<para>Multiple items.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+
+		<para>Variables come in two forms:</para>
+
+		<variablelist>
+			<varlistentry>
+				<term><code>XYZ += <replaceable>...</replaceable></code></term>
+
+				<listitem>
+					<para>Lists of zero or more whitespace-separated words.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code>XYZ  = <replaceable>...</replaceable></code></term>
+				<term><code>XYZ ?= <replaceable>...</replaceable></code></term>
+
+				<listitem>
+					<para>Single items, which may contain whitespace.
+						Indicated as <code>?=</code> where optional and
+						<code>=</code> otherwise.
+						Optional variables have a default value,
+						which may be empty.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+
+		<para>Lowercase is reserved for local variables
+			(i.e. those used within one <filename>.mk</filename> file).
+			These may be overwritten by the next file.</para>
+	</refsection>
+
+	<refsection>
+		<title>Targets</title>
+
+		<para>The user interface for executing <filename>.mk</filename> files
+			is provided by <code>xyz::</code> targets.
+			Each <filename>.mk</filename> file appends its commands to
+			these targets, such that the targets form a common interface
+			grouped by function. The available targets are:</para>
+
+		<variablelist>
+			<varlistentry>
+				<term><code>clean::</code></term>
+
+				<listitem>
+					<para>Remove contents from <replaceable>BUILD</replaceable>.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code>dep::</code></term>
+
+				<listitem>
+					<para>Generate dependencies.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code>gen::</code></term>
+
+				<listitem>
+					<para>Generate source code.</para>
+
+					<para>This overwites generated source in the source tree.
+						The idea is to commit generated source,
+						so <code>gen::</code> is just for developers.
+						This reduces build dependencies for packaging.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code>install::</code></term>
+
+				<listitem>
+					<para>Stage files for packaging.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code>lib::</code></term>
+
+				<listitem>
+					<para>Build a library.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code>mkdir::</code></term>
+
+				<listitem>
+					<para>Create directories.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code>prog::</code></term>
+
+				<listitem>
+					<para>Build an executable program.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code>test::</code></term>
+
+				<listitem>
+					<para>Run tests.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</refsection>
+
+<!-- no need; look at what you actually use
+	<refsection>
+		<title>Dependencies</title>
+
+<para>
+list of base.mk-style depdenecy programs (RM, LD, etc), and which makefiles use them
+</para>
+	</refsection>
+-->
+
+	<refsection>
+		<title>Configuration</title>
+
+		<para>Global configuration is provided by variables which
+			are used by various <filename>.mk</filename> files.
+			There is no need to set configuration variables which
+			are not used by the particular <filename>.mk</filename> files
+			included for a user's project.</para>
+		<!--
+			Variables need to be set only if they are used by the
+			particular <filename>.mk</filename> files
+			included for a user's project.</para>
+		-->
+
+		<para>Constant parameters are intended to be specified in the
+			user's top-level <filename>Makefile</filename>.
+			Optional parameters are intended to be set on the command
+			line when executing &make;, by passing <code>-DDEBUG</code>
+			or similar.</para>
+
+		<!-- TODO: RELEASE, LANG* etc -->
+
+		<variablelist>
+			<varlistentry>
+				<term><code><varname>BUILD</varname> = <replaceable>dir</replaceable></code></term>
+
+				<listitem>
+					<para>The name of the object directory into which
+						builds are made.
+						This need not be a subdirectory of the source,
+						and so the source may be read-only.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code><varname>DEBUG</varname> ?=</code></term>
+
+				<listitem>
+					<para>When set, this enabled various debugging facilities
+						meaningful for a particular <filename>.mk</filename>
+						file, such as not stripping symbols from compiled
+						objects.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code><varname>PREFIX</varname> = <replaceable>dir</replaceable></code></term>
+
+				<listitem>
+					<para>The name of the directory for installation.
+						Typically this is something like <filename>/usr/local</filename>
+						but conventions differ for each operating system.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</refsection>
+
+	<refsection>
+		<title>Lists</title>
+
+		<para>List variables form interfaces between
+			<filename>.mk</filename> files, such that the output from one
+			chains to the input of the next.
+			These lists may also be populated by user makefiles.</para>
+
+		<!-- only list variables *output* by other .mk files here -->
+		<variablelist>
+			<varlistentry>
+				<term><code><varname>CLEAN</varname> += <replaceable>file</replaceable></code></term>
+				<term><code><varname>DIR</varname>   += <replaceable>dir</replaceable></code></term>
+
+				<listitem>
+					<para>Files and directories created in the
+						<replaceable>BUILD</replaceable> directory.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code><varname>STAGE_BUILD</varname> += <replaceable>path</replaceable> ...</code></term>
+				<term><code><varname>STAGE_COPY</varname>  += <replaceable>path</replaceable> ...</code></term>
+
+				<listitem>
+					<para>Files and directories to be staged for installation.</para>
+				</listitem>
+			</varlistentry>
+
+			<!-- XXX: not output by anything
+			<varlistentry>
+				<term><code><varname>INCDIR</varname> += <replaceable>dir</replaceable> ...</code></term>
+
+				<listitem>
+					<para>Directories for user headers to be included by <code>#include &lt;...&gt;</code>.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code><varname>LIB</varname>    += lib<replaceable>name</replaceable></code></term>
+
+				<listitem>
+					<para>Dynamically and statically linked library names.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code><varname>SRC</varname> += <replaceable>src/name</replaceable>.c</code></term>
+
+				<listitem>
+					<para>Source code.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code><varname>PART</varname> += <replaceable>name</replaceable></code></term>
+
+				<listitem>
+					<para></para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><code><varname>PROG</varname> += <replaceable>name</replaceable></code></term>
+
+				<listitem>
+					<para></para>
+				</listitem>
+			</varlistentry>
+			-->
+		</variablelist>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.url;, &clean.7mk;, &install.7mk;.</para>
+	</refsection>
+
+	<refsection>
+		<title>Author</title>
+
+		<para>Katherine Flavel, &elide.url;.</para>
+	</refsection>
+</refentry>
+

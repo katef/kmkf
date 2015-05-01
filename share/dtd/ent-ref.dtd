@@ -31,6 +31,8 @@
 <!ENTITY so.7mk "<citerefentry><refentrytitle>so</refentrytitle> %vol.7mk;</citerefentry>">
 <!ENTITY top.7mk "<citerefentry><refentrytitle>top</refentrytitle> %vol.7mk;</citerefentry>">
 
+<!ENTITY kmkf.url   "<ulink url='http://kmkf.elide.org/'>http://kmkf.elide.org/</ulink>">
+<!ENTITY elide.url  "<ulink url='http://www.elide.org/'>http://www.elide.org/</ulink>">
 <!ENTITY libfsm.url "<ulink url='http://www.libfsm.org/'>http://www.libfsm.org/</ulink>">
 <!ENTITY tendra.url "<ulink url='http://www.tendra.org/'>http://www.tendra.org/</ulink>">
 
