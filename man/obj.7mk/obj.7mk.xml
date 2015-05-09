@@ -66,16 +66,13 @@
 			<code>LANG<replaceable>name</replaceable>.c ?= C</code> (default)
 		-->
 
-<synopsis>BUILD    = <replaceable>dir</replaceable>
-
-CC      ?= cc
-
-INCDIR  += <replaceable>dir</replaceable>
-
-SRC     += <replaceable>name</replaceable>.c
-
+<synopsis>CC              ?= cc
 CFLAGS          += <replaceable>...</replaceable>
 CFLAGS<replaceable>name</replaceable>.c += <replaceable>...</replaceable>
+
+BUILD    = <replaceable>dir</replaceable>
+INCDIR  += <replaceable>dir</replaceable>
+SRC     += <replaceable>name</replaceable>.c
 
 ${BUILD}/<replaceable>name</replaceable>.c:</synopsis>
 	</refsection>

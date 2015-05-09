@@ -44,11 +44,10 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>BUILD     = <replaceable>dir</replaceable>
-
-LD       ?= ld
+<synopsis>LD       ?= ld
 LDRFLAGS ?=
 
+BUILD     = <replaceable>dir</replaceable>
 LIB      += <replaceable>lib</replaceable>
 PART     += <replaceable>part</replaceable>
 

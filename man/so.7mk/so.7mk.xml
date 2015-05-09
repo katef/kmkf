@@ -45,11 +45,10 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>BUILD     = <replaceable>dir</replaceable>
-
-LD       ?= ld
+<synopsis>LD       ?= ld
 LDSFLAGS ?= -shared
 
+BUILD     = <replaceable>dir</replaceable>
 LIB      += lib<replaceable>name</replaceable>
 
 ${BUILD}/lib/lib<replaceable>name</replaceable>.o:</synopsis>

@@ -53,15 +53,13 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>PREFIX   = <replaceable>dir</replaceable>
+<synopsis>INSTALL ?= install
 
-INSTALL ?= install
-
+PREFIX       = <replaceable>dir</replaceable>
 STAGE_BUILD += <replaceable>path_build</replaceable>
 STAGE_COPY  += <replaceable>path_copy</replaceable>
 
 DIR_<replaceable>path</replaceable>  ?= ${path:H}
-
 MODE_<replaceable>file</replaceable> ?= 644
 MODE_<replaceable>dir</replaceable>  ?= 755
 

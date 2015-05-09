@@ -41,11 +41,10 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>BUILD   = <replaceable>dir</replaceable>
-
-RMDIR  ?= rm -r
+<synopsis>RMDIR  ?= rm -r
 REMOVE ?= rm -f
 
+BUILD   = <replaceable>dir</replaceable>
 DIR    += <replaceable>dir</replaceable>
 CLEAN  += <replaceable>file</replaceable></synopsis>
 	</refsection>

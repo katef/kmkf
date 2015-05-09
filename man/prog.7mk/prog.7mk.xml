@@ -52,12 +52,11 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>BUILD    = <replaceable>dir</replaceable>
-
+<synopsis>CC      ?= <replaceable>...</replaceable> <remark># see &obj.7mk;</remark>
 STRIP   ?= strip
-
 LFLAGS  ?=
 
+BUILD    = <replaceable>dir</replaceable>
 PROG    += <replaceable>name</replaceable>
 
 <replaceable>obj</replaceable>.o ...:</synopsis>
@@ -75,7 +74,7 @@ ${BUILD}/bin/<replaceable>name</replaceable>: <replaceable>obj</replaceable>.o .
 	<refsection>
 		<title>See Also</title>
 
-		<para>&kmkf.7mk;, &so.7mk;, &part.7mk;, &clean.7mk;, &install.7mk;, &ar;.</para>
+		<para>&kmkf.7mk;, &obj.7mk;, &clean.7mk;, &install.7mk;, &ar;.</para>
 	</refsection>
 </refentry>
 

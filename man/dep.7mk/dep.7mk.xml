@@ -49,11 +49,10 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>BUILD   = <replaceable>dir</replaceable>
-DEP    ?= ${CC} -M
-
+<synopsis>DEP    ?= ${CC} -M
 DFLAGS ?= -MT <remark># provided per ${CC}</remark>
 
+BUILD   = <replaceable>dir</replaceable>
 INCDIR += <replaceable>dir</replaceable>
 SRC    += <replaceable>src/name</replaceable>.c</synopsis>
 	</refsection>

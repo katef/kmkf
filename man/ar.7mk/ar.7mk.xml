@@ -52,12 +52,11 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>BUILD    = <replaceable>dir</replaceable>
-
-AR      ?= ar
+<synopsis>AR      ?= ar
 RANLIB  ?= ar s
 ARFLAGS ?= cr
 
+BUILD    = <replaceable>dir</replaceable>
 LIB     += lib<replaceable>name</replaceable>
 
 ${BUILD}/lib/lib<replaceable>name</replaceable>.o:</synopsis>
