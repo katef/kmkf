@@ -13,6 +13,7 @@
 <!-- Other Section 1 -->
 <!ENTITY ar "<citerefentry role='dontlink'><refentrytitle>ar</refentrytitle> %vol.1;</citerefentry>">
 <!ENTITY cc "<citerefentry role='dontlink'><refentrytitle>cc</refentrytitle> %vol.1;</citerefentry>">
+<!ENTITY cd "<citerefentry role='dontlink'><refentrytitle>cd</refentrytitle> %vol.1;</citerefentry>">
 <!ENTITY rm "<citerefentry role='dontlink'><refentrytitle>rm</refentrytitle> %vol.1;</citerefentry>">
 <!ENTITY chmod "<citerefentry role='dontlink'><refentrytitle>chmod</refentrytitle> %vol.1;</citerefentry>">
 <!ENTITY make "<citerefentry role='dontlink'><refentrytitle>make</refentrytitle> %vol.1;</citerefentry>">
