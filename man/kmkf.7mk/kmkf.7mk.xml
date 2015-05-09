@@ -183,15 +183,15 @@ list of base.mk-style depdenecy programs (RM, LD, etc), and which makefiles use 
 			are used by various <filename>.mk</filename> files.
 			There is no need to set configuration variables which
 			are not used by the particular <filename>.mk</filename> files
-			included for a user's project.</para>
+			included for a user&rsquo;s project.</para>
 		<!--
 			Variables need to be set only if they are used by the
 			particular <filename>.mk</filename> files
-			included for a user's project.</para>
+			included for a user&rsquo;s project.</para>
 		-->
 
 		<para>Constant parameters are intended to be specified in the
-			user's top-level <filename>Makefile</filename>.
+			user&rsquo;s top-level <filename>Makefile</filename>.
 			Optional parameters are intended to be set on the command
 			line when executing &make;, by passing <code>-DDEBUG</code>
 			or similar.</para>

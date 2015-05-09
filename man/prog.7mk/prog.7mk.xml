@@ -42,7 +42,7 @@
 				<term><code>DEBUG</code></term>
 
 				<listitem>
-					<para>Don't strip symbols.
+					<para>Don&rsquo;t strip symbols.
 						Symbols are stripped by default.</para>
 				</listitem>
 			</varlistentry>

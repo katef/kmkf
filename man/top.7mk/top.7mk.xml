@@ -39,7 +39,7 @@
 		<para>The effect is that dependencies for the entire tree will be re-built,
 			not just those affecting the current directory.</para>
 
-		<para>Note that &top.7mk; is included from each directory's own
+		<para>Note that &top.7mk; is included from each directory&rsquo;s own
 			<filename>Makefile</filename>, using a relative path of the form
 			<code>&quot;../mk/top.mk&quot;</code>, rather than from the top-level
 			<filename>Makefile</filename> using the <code>&lt;xyz.mk&gt;</code>
