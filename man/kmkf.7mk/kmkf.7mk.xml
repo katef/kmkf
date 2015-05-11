@@ -117,7 +117,7 @@
 				<listitem>
 					<para>Generate source code.</para>
 
-					<para>This overwites generated source in the source tree.
+					<para>This overwrites generated source in the source tree.
 						The idea is to commit generated source,
 						so <code>gen::</code> is just for developers.
 						This reduces build dependencies for packaging.</para>
@@ -171,7 +171,7 @@
 		<title>Dependencies</title>
 
 <para>
-list of base.mk-style depdenecy programs (RM, LD, etc), and which makefiles use them
+list of base.mk-style dependency programs (RM, LD, etc), and which makefiles use them
 </para>
 	</refsection>
 -->

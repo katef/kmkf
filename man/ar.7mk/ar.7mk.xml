@@ -44,7 +44,7 @@
 		<para>It is recommended to collate object files into one
 			partially-linked object file by way of &part.7mk;,
 			and then to archive that single file.
-			This avoids passing possibly conflicting filenames to &ar;
+			This avoids passing possibly conflicting file names to &ar;
 			without relying on full path names, which not all
 			implementations support.</para>
 	</refsection>
