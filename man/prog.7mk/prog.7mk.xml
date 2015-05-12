@@ -68,7 +68,8 @@ PROG    += <replaceable>name</replaceable>
 <synopsis>CLEAN += <replaceable>...</replaceable>
 DIR   += <replaceable>...</replaceable>
 
-${BUILD}/bin/<replaceable>name</replaceable>: <replaceable>obj</replaceable>.o ...</synopsis>
+${BUILD}/bin/<replaceable>name</replaceable>: <replaceable>obj</replaceable>.o ...
+prog:: ${BUILD}/bin/<replaceable>name</replaceable></synopsis>
 	</refsection>
 
 	<refsection>
