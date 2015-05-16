@@ -1,5 +1,7 @@
 
-\setuppapersize[A4]
+\startmode[A4]
+	\setuppapersize[A4]
+\stopmode
 
 \definepalet
 	[layout]
@@ -36,4 +38,16 @@
 
 \setupinterlinespace[small]
 \setupwhitespace[halfline]
+
+\setupcolumns[
+	distance=1pt,
+	balance=no]
+
+\setupitemgroup[
+	margin=1.5\bodyfontsize]
+
+\setuptyping[
+	margin=3\bodyfontsize]
+
+
 

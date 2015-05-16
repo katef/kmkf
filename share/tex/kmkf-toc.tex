@@ -1,0 +1,55 @@
+
+\startnotmode[manpage]
+
+	\definefiller[pavel]
+		[alternative=symbol,
+		%method=global,
+		width=.8ex,
+		symbol={.},
+		leftmargin=.125em,
+		rightmargin=.5em]
+
+	\setuplistalternative[c][filler={\filler[pavel]}]
+
+	% TODO: tabular figures for section prefixes in the table
+	\setupcombinedlist[content]
+		[alternative=c,
+		list={chapter,subject,subsubject,section,subsection},
+		interaction={pagenumber,text},
+		before={\godown[2\bodyfontsize]},
+		after=,
+		level=3]
+
+	\setupcombinedlist[chapter][
+		numbercommand={\feature[+][f:tabnum]},
+		before={\godown[1\bodyfontsize]},
+		]
+
+	\setupcombinedlist[section][
+		numbercommand={\feature[+][f:tabnum]},
+		before=,
+		after=]
+
+	\setupcombinedlist[subject][
+		numbercommand={\feature[+][f:tabnum]},
+		before=,
+		after=]
+
+	% line-spacing for ToC
+	\startsectionblockenvironment[frontpart]
+		\setupwhitespace[small]
+	\stopsectionblockenvironment
+
+	%\setuplist[section][width=4\bodyfontsize]
+
+	% This is silly, but I can't figure out how to get whitespace before placecontent
+	\define\PlaceContent
+		{
+			\setupwhitespace[0pt]
+			\godown[2\bodyfontsize]
+			{\bf Contents}
+			\placecontent
+		}
+
+\stopnotmode
+

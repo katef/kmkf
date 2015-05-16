@@ -1,0 +1,43 @@
+% 
+% \setupfontsynonym [Serif] [handling=hx]
+% \setupfonthandling [hz] [min=25,max=25,step=5]
+% \definettypeface[palatino][rm][serif][palatino][default]
+% \setupbodyfont[palatino]
+% \setupalign[hz]
+% You can also combine these features. For that you need to define a handling that
+% combines protruding and hz:
+% \definefonthandling [quality] [hz,pure]
+% 
+
+% XXX: here or in typescript?
+%\definefontfeature[default][default][protrusion=quality,expansion=quality]
+\definefontfeature[default][default][protrusion=quality,expansion=quality,script=latn]
+
+\setupalign[hz,hanging]
+
+
+\usetypescriptfile[sourcepro]
+\usetypescript[sourcepro]
+
+\setupbodyfont[sourcepro,ss,11pt]
+
+\definebodyfontenvironment[default][em=bold] % XXX: why doesn't slanted exist?
+
+\definefontfeature[f:smcp][mode=node,smcp=yes]
+\definefontfeature[f:c2sc][mode=node,c2sc=yes]
+\definefontfeature[f:tabnum][mode=node,pnum=no,onum=no]
+
+% XXX: how to use this?
+% TODO: hbox around all \tt stuff
+\definefontfeature [narrow] [extend=5.2] % e.g. susp
+
+% TODO: adobe source code pro looks too wide
+%\definefontfeature[condensed][default][extend=0.25]
+%\definedfont[Mono*condensed] Only You Can Read This
+
+% XXX: overrides mdb; would prefer to do this as a setup
+%\setupstartstop[mdbsynopsis[]
+% TODO: \addff{narrow}
+% TODO: note "narrow" is a custom \definefontfeature
+
+

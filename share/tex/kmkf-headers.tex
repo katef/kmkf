@@ -64,16 +64,26 @@
 	command=\HeadVbox,
 	style=\bfb]
 
-\setuphead[section,subsection][
-	page=no,
-	before={\blank[2em]},
-	style=\tfa]
+\startnotmode[manpage]
 
-\setuphead[section][
-	after={\startnarrower[1.5cm]},
-	aftersection={\stopnarrower}]
+	\setuphead[section,subsection][
+		page=no,
+		before={\blank[2em]},
+		style=\tfa]
 
-% manpages only
-\setuphead[section][
-	style=WORD]
+\stopnotmode
+
+% TODO: i want a nicer way to override default manpage header:
+\startmode[manpage]
+
+	\startsetups[text a]
+		\rlap{\getvariable{env}{manual}}
+		\hfill
+		\llap{\getvariable{env}{manpage}}
+	\stopsetups
+
+	\setupheadertexts[\setups{text a}][]
+
+\stopmode
+
 
