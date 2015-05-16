@@ -1,0 +1,169 @@
+% 
+% \setupfontsynonym [Serif] [handling=hx]
+% \setupfonthandling [hz] [min=25,max=25,step=5]
+% \definettypeface[palatino][rm][serif][palatino][default]
+% \setupbodyfont[palatino]
+% \setupalign[hz]
+% You can also combine these features. For that you need to define a handling that
+% combines protruding and hz:
+% \definefonthandling [quality] [hz,pure]
+% 
+
+\setupinteraction[state=start,color=black,contrastcolor=black]
+
+\placebookmarks[chapter,section]
+
+\definecolor[kmkf-green][h=77CC88]
+
+% XXX: here or in typescript?
+%\definefontfeature[default][default][protrusion=quality,expansion=quality]
+\definefontfeature[default][default][protrusion=quality,expansion=quality,script=latn]
+
+\setupalign[hz,hanging]
+
+
+\input tex/kmkf-layout
+\input tex/kmkf-headers
+
+\usetypescriptfile[sourcepro]
+\usetypescript[sourcepro]
+
+\setupbodyfont[sourcepro,ss,11pt]
+
+\definefontfeature[f:smcp][mode=node,smcp=yes]
+\definefontfeature[f:c2sc][mode=node,c2sc=yes]
+\definefontfeature[f:tabnum][mode=node,pnum=no,onum=no]
+
+\setupcolors[state=start]
+
+
+\definefiller[pavel]
+	[alternative=symbol,
+	%method=global,
+	width=.8ex,
+	symbol={.},
+	leftmargin=.125em,
+	rightmargin=.5em]
+
+\setuplistalternative[c][filler={\filler[pavel]}]
+
+\def\Revision[#1] {\setvariable{env}{revision}{#1}}
+\def\Product [#1] {\setvariable{env}{product} {#1}}
+\def\Document[#1] {\setvariable{env}{document}{#1}}
+\def\Author  [#1] {\setvariable{env}{author}  {#1}}
+\def\Classify[#1] {\setvariable{env}{classify}{#1}} % restricted, commercial confidence
+
+\def\DateReplaceToken#1{\doifelse{#1}{-}{\endash}{#1}}
+\def\Date #1 {\feature[+][f:tabnum] \handletokens#1\with\DateReplaceToken}
+
+% TODO: tabulate authors
+\def\PlaceAuthor[#1][#2][#3] {\NC #1 \NC <#2> \NC\NR}
+
+\def\PlaceRevision[#1][#2][#3] {\NC \Date{#1} \NC #2 \NC #3 \NC\NR}
+
+
+% XXX: doesn't appear to work
+%\setupsectionblock[frontpart,bodypart][
+%	page=no]
+
+
+% maybe this goes in the header instead
+\def\PlaceTitle {
+		\setupinteraction[
+			author={\getvariable{env}{author}},
+			subtitle=,
+			keyword={\getvariable{env}{product}}]
+
+%		\title{\getvariable{env}{product} \enspace {\tf \getvariable{env}{document}}}
+	}
+
+% TODO: tabular figures for section prefixes in the table
+\setupcombinedlist[content]
+	[alternative=c,
+	list={chapter,subject,subsubject,section,subsection},
+	interaction={pagenumber,text},
+	before={\godown[2\bodyfontsize]},
+	after=,
+	level=3]
+
+\setupcombinedlist[chapter][
+	numbercommand={\feature[+][f:tabnum]},
+	before={\godown[1\bodyfontsize]},
+	]
+
+\setupcombinedlist[section][
+	numbercommand={\feature[+][f:tabnum]},
+	before=,
+	after=]
+
+\setupcombinedlist[subject][
+	numbercommand={\feature[+][f:tabnum]},
+	before=,
+	after=]
+
+% line-spacing for ToC
+\startsectionblockenvironment[frontpart]
+	\setupwhitespace[small]
+\stopsectionblockenvironment
+
+%\setuplist[section][width=4\bodyfontsize]
+
+% This is silly, but I can't figure out how to get whitespace before placecontent
+\define\PlaceContent
+	{
+		\setupwhitespace[0pt]
+		\godown[2\bodyfontsize]
+		{\bf Contents}
+		\placecontent
+	}
+
+\setupcolumns[
+	distance=1pt,
+	balance=no]
+
+\setupitemgroup[
+	margin=1.5\bodyfontsize]
+
+\setuptyping[
+	margin=3\bodyfontsize]
+
+% TODO: preserve case for title
+\setupbibtex[
+	database=index.bib]
+
+\setuppublications[
+	alternative=apa]
+
+% XXX: how to use this?
+% TODO: hbox around all \tt stuff
+\definefontfeature [narrow] [extend=5.2] % e.g. susp
+
+
+% XXX: overrides mdb; would prefer to do this as a setup
+\startxmlsetups xml:replaceable
+	{\tt \$\{\xmlflush{#1}\}}
+\stopxmlsetups
+
+% XXX: overrides mdb; would prefer to do this as a setup
+\startxmlsetups xml:synopsis
+	% XXX: \starttyping does not work here
+	% TODO: note "narrow" is a custom \definefontfeature
+	{\tt\addff{narrow} \xmlflush{#1}}
+\stopxmlsetups
+
+
+
+% TODO: adobe source code pro looks too wide
+%\definefontfeature[condensed][default][extend=0.25]
+%\definedfont[Mono*condensed] Only You Can Read This
+
+% manpages only, to override default manpage header:
+\startsetups[text a]
+	\rlap{\getvariable{env}{manual}}
+	\hfill
+	\llap{\getvariable{env}{manpage}}
+\stopsetups
+
+\setupheadertexts[\setups{text a}][]
+
+
