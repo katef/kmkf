@@ -70,9 +70,10 @@
 CFLAGS          += <replaceable>...</replaceable>
 CFLAGS<replaceable>name</replaceable>.c += <replaceable>...</replaceable>
 
-BUILD    = <replaceable>dir</replaceable>
-INCDIR  += <replaceable>dir</replaceable>
-SRC     += <replaceable>name</replaceable>.c
+BUILD           = <replaceable>dir</replaceable>
+INCDIR         += <replaceable>dir</replaceable>
+INCDIR<replaceable>name</replaceable>.c += <replaceable>...</replaceable>
+SRC            += <replaceable>name</replaceable>.c
 
 ${BUILD}/<replaceable>name</replaceable>.c:</synopsis>
 	</refsection>

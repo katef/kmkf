@@ -5,6 +5,13 @@ CFLAGS_PIC ?= -fPIC
 CFLAGS += -I ${dir}
 .endfor
 
+.for src in ${SRC}
+.for dir in ${INCDIR_${src}}
+CFLAGS_${src} += -I ${dir}
+.endfor
+
+.endfor
+
 .if ${CC:T:Mgcc}
 .if defined(DEBUG)
 CFLAGS += -std=c89 -pedantic
