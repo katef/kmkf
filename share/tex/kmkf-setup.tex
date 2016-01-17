@@ -5,47 +5,19 @@
 
 \definecolor[kmkf-green][h=77CC88]
 
+%\setvariables[environment][company={kmkf.elide.org}]
+%\setvariables[environment][product={KMKF}]
 
 \input kmkf-fonts
 \input kmkf-layout
 \input kmkf-headers
 \input kmkf-toc
 
-\def\Revision[#1] {\setvariable{env}{revision}{#1}}
-\def\Product [#1] {\setvariable{env}{product} {#1}}
-\def\Document[#1] {\setvariable{env}{document}{#1}}
-\def\Author  [#1] {\setvariable{env}{author}  {#1}}
-\def\Classify[#1] {\setvariable{env}{classify}{#1}} % restricted, commercial confidence
+% TODO: maybe centralise
+\setupstartstop[mdbcommand,mdbuserinput,mdbcomputeroutput,mdbapplication,mdbcode,mdbvarname,mdbtoken,mdbparameter,mdbconstant,mdbfunction,mdbreplaceable][
+	style=\tt]
 
-\def\DateReplaceToken#1{\doifelse{#1}{-}{\endash}{#1}}
-\def\Date #1 {\feature[+][f:tabnum] \handletokens#1\with\DateReplaceToken}
-
-% TODO: tabulate authors
-\def\PlaceAuthor[#1][#2][#3] {\NC #1 \NC <#2> \NC\NR}
-
-\def\PlaceRevision[#1][#2][#3] {\NC \Date{#1} \NC #2 \NC #3 \NC\NR}
-
-
-% XXX: doesn't appear to work
-%\setupsectionblock[frontpart,bodypart][
-%	page=no]
-
-
-% maybe this goes in the header instead
-\def\PlaceTitle {
-		\setupinteraction[
-			author={\getvariable{env}{author}},
-			subtitle=,
-			keyword={\getvariable{env}{product}}]
-
-%		\title{\getvariable{env}{product} \enspace {\tf \getvariable{env}{document}}}
-	}
-
-
-% TODO: preserve case for title
-\setupbibtex[
-	database=index.bib]
-
-\setuppublications[
-	alternative=apa]
+\setupstartstop[mdbreplaceable][
+	left=\$\{,
+	right=\}]
 

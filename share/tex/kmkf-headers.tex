@@ -1,7 +1,7 @@
 
 \startsetups[doc:classify]
 	\hfill
-	\cap \WORD \getvariable{env}{classify}
+	\cap \WORD \env{classify}
 	\hfill
 \stopsetups
 
@@ -13,13 +13,18 @@
 
 \startsetups[doc:revision]
 	\small
-	Rev.~\getvariable{env}{revision}
+	Rev.~\env{revision}
 \stopsetups
 
 \setupbackgrounds[header][text][
 	bottomframe=on,
 	rulethickness=2pt,
 	framecolor=kmkf-green]
+
+% gap for rule above
+\setuplayout[
+	header=1.6\bodyfontsize,
+	headerdistance=2.4\bodyfontsize]
 
 % disabled, as we place this by \setupfootertexts
 \setuppagenumbering[location=]
@@ -37,32 +42,9 @@
 \startsectionblockenvironment[bodypart,appendix]
 \stopsectionblockenvironment
 
-\def\TitleRev#1%
-	{#1\hfill \setup{doc:revision}}
-
-\define[2]\HeadVbox%
-	{\vbox to 1.25\lineheight % XXX: fragile
-		{\headtext{chapter} #1 \hskip.75em #2}}
-
 \setuphead[chapter,appendix,section,subsection][
 	align={flushleft, nothyphenated, verytolerant},
 	incrementnumber=yes]
-
-\setuphead[title][
-	page=yes,
-	header=high,
-	textcommand=\TitleRev,
-	after={\blank[2*halfline]}]
-
-% header=high to have the chapter title occupy the space of the header.
-% To keep the geometric layout, the title height must match the header height.
-\setuphead[chapter,appendix][
-	page=yes,
-	header=high,
-	after=\placecontent,
-	placehead=yes,
-	command=\HeadVbox,
-	style=\bfb]
 
 \startnotmode[manpage]
 
@@ -76,13 +58,15 @@
 % TODO: i want a nicer way to override default manpage header:
 \startmode[manpage]
 
-	\startsetups[text a]
-		\rlap{\getvariable{env}{manual}}
-		\hfill
-		\llap{\getvariable{env}{manpage}}
+	\startsetups[man:header-left]
+		\rlap{\env{product}}
 	\stopsetups
 
-	\setupheadertexts[\setups{text a}][]
+	\setuphead[section,subsection][
+		style=\WORDS]
+
+	% disable Reference index
+	\setuphead[part][before=,after=,page=no]
 
 \stopmode
 
