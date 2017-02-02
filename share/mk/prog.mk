@@ -12,7 +12,7 @@ CLEAN += ${BUILD}/bin/${prog}
 
 ${BUILD}/bin/${prog}:
 	${CC} -o $@ ${LFLAGS} ${.ALLSRC:M*.o} ${.ALLSRC:M*.a} ${LFLAGS_${prog}}
-.if !defined(DEBUG)
+.if !defined(DEBUG) && !defined(NOSTRIP)
 	${STRIP} $@
 .endif
 

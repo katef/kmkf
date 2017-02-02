@@ -42,6 +42,14 @@
 				<term><code>DEBUG</code></term>
 
 				<listitem>
+					<para>Adjusts the build to add and preserve debugging
+						information. Implies <code>NOSTRIP</code>.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><code>NOSTRIP</code></term>
+
+				<listitem>
 					<para>Don&rsquo;t strip symbols.
 						Symbols are stripped by default.</para>
 				</listitem>
