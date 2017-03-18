@@ -9,6 +9,12 @@ DEP ?= ${CC} -M
 DFLAGS += -I ${dir}
 .endfor
 
+.for src in ${SRC}
+.for dir in ${INCDIR_${src}}
+DFLAGS_${src} += -I ${dir}
+.endfor
+.endfor
+
 .if ${DEP:T:Mgcc}
 DFLAGS += -MT ${@:R}.o
 DFLAGS += -ansi -pedantic
