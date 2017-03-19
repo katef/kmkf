@@ -1,5 +1,3 @@
-<!-- $Id: ent-misc.dtd 388 2011-10-29 12:30:11Z kate $ -->
-
 <!-- TODO: all in hex -->
 <!ENTITY nbsp   "&#160;">
 <!ENTITY hellip "&#133;">
