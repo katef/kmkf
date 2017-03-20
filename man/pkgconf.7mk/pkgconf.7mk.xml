@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+	Copyright 2014-2017 Katherine Flavel
+
+	See LICENCE for the full copyright terms.
+-->
+
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>pkgconf</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refclass>mk</refclass>
+		<refname>dep</refname>
+		<refpurpose>Dependencies on external packages</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<synopsis>.include &lt;pkgconf.mk&gt;</synopsis>
+	</refsynopsisdiv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Aquire flags for using external packages.</para>
+
+		<para>Flags are found by executing an external program,
+			specified by <varname>PKGCONF</varname>.</para>
+	</refsection>
+
+	<refsection>
+		<title>Input</title>
+
+<synopsis>PKGCONF ?= pkgconf <remark># or pkg-config</remark>
+PCFLAGS ?=
+
+PKG += <replaceable>pkg</replaceable></synopsis>
+	</refsection>
+
+	<refsection>
+		<title>Output</title>
+
+<synopsis>CFLAGS_<replaceable>pkg</replaceable> += <replaceable>...</replaceable>
+LIBS_<replaceable>pkg</replaceable>   += <replaceable>...</replaceable></synopsis>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.7mk;, &pkgconf;, &pkg-config;.</para>
+	</refsection>
+</refentry>
+

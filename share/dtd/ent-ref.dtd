@@ -20,6 +20,8 @@
 <!ENTITY ld "<citerefentry role='dontlink'><refentrytitle>ld</refentrytitle> %vol.1;</citerefentry>">
 <!ENTITY lx "<citerefentry role='dontlink'><refentrytitle>lx</refentrytitle> %vol.1;</citerefentry>">
 <!ENTITY sid "<citerefentry role='dontlink'><refentrytitle>sid</refentrytitle> %vol.1;</citerefentry>">
+<!ENTITY pkgconf "<citerefentry role='dontlink'><refentrytitle>pkgconf</refentrytitle> %vol.1;</citerefentry>">
+<!ENTITY pkg-config "<citerefentry role='dontlink'><refentrytitle>pkg-config</refentrytitle> %vol.1;</citerefentry>">
 
 <!-- kmkf section 7mk -->
 <!ENTITY ar.7mk "<citerefentry><refentrytitle>ar</refentrytitle> %vol.7mk;</citerefentry>">
