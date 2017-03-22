@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+	Copyright 2014-2017 Katherine Flavel
+
+	See LICENCE for the full copyright terms.
+-->
+
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<refentry>
+	<refentryinfo>
+		<title>&kmkf; Manual</title>
+		<productname>&kmkf;</productname>
+
+		<authorgroup>
+			<author>
+				<firstname>Katherine</firstname>
+				<surname>Flavel</surname>
+			</author>
+		</authorgroup>
+	</refentryinfo>
+
+	<refmeta>
+		<refentrytitle>pc</refentrytitle>
+		<manvolnum>7mk</manvolnum>
+	</refmeta>
+
+	<refnamediv>
+		<refclass>mk</refclass>
+		<refname>pc</refname>
+		<refpurpose>Provide pkg-config files</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<synopsis>.include &lt;pc.mk&gt;</synopsis>
+	</refsynopsisdiv>
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Provide &pkg-config; files for external programs to use.</para>
+
+		<para>These are pre-processed to substitute variables specified
+			to the makefiles.
+			The makefile variables and their &pkg-config; equivalents are:</para>
+
+		<informaltable>
+			<tr>
+				<td><code>${PREFIX}</code></td>
+				<td><code>${prefix}</code></td>
+			</tr>
+		</informaltable>
+	</refsection>
+
+	<refsection>
+		<title>Input</title>
+
+<synopsis>SED      ?= sed
+SEDFLAGS ?=
+
+PCDIR    ?= share/pkgconfig <remark># installation directory</remark>
+
+BUILD     = <replaceable>dir</replaceable>
+PC       += <replaceable>name</replaceable>.pc.in
+	</refsection>
+
+	<refsection>
+		<title>Output</title>
+
+<synopsis>CLEAN += <replaceable>...</replaceable>
+
+${BUILD}/.../<replaceable>name</replaceable>.pc: ...:</synopsis>
+	</refsection>
+
+	<refsection>
+		<title>See Also</title>
+
+		<para>&kmkf.7mk;, &pkg-config;, &pkgconf;.</para>
+	</refsection>
+</refentry>
+
