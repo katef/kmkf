@@ -5,7 +5,7 @@
 # See LICENCE for the full copyright terms.
 #
 
-.if ${CC:T:Mgcc}
+.if ${CC:T:Mclang} || ${CC:T:Mgcc}
 DEP ?= ${CC} -M
 .endif
 
@@ -21,7 +21,7 @@ DFLAGS.${src} += -I ${dir}
 .endfor
 .endfor
 
-.if ${DEP:T:Mgcc}
+.if ${CC:T:Mclang} || ${DEP:T:Mgcc}
 DFLAGS += -MT ${@:R}.o
 DFLAGS += -ansi -pedantic
 .endif
