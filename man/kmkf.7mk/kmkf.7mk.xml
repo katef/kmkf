@@ -90,6 +90,13 @@
 		<para>Lowercase is reserved for local variables
 			(i.e. those used within one <filename>.mk</filename> file).
 			These may be overwritten by the next file.</para>
+
+		<para>By convention, variables which apply to multiple items
+			may also be named with a <code>.</code> (dot)
+			to indicate an individual item.
+			For example, <varname>CFLAGS</varname> applies for all C files,
+			and <varname>CFLAGS.<replaceable>${name}</replaceable></varname>
+			for that one particular file.</para>
 	</refsection>
 
 	<refsection>

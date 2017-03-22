@@ -46,7 +46,7 @@
 			<varname>CFLAGS</varname> defaults to per-compiler settings for ISO C90.
 			Individual <varname>CFLAGS</varname> specific to a particular
 			source file may be specified by
-			<varname>CFLAGS<replaceable>name</replaceable>.c</varname>
+			<varname>CFLAGS.<replaceable>name</replaceable>.c</varname>
 			for each source file.</para>
 	</refsection>
 
@@ -70,17 +70,17 @@
 		<title>Input</title>
 
 		<!-- TODO: lang
-			<code>LANG<replaceable>name</replaceable>.c ?= C</code> (default)
+			<code>LANG.<replaceable>name</replaceable>.c ?= C</code> (default)
 		-->
 
-<synopsis>CC              ?= cc
-CFLAGS          += <replaceable>...</replaceable>
-CFLAGS<replaceable>name</replaceable>.c += <replaceable>...</replaceable>
+<synopsis>CC               ?= cc
+CFLAGS           += <replaceable>...</replaceable>
+CFLAGS.<replaceable>name</replaceable>.c += <replaceable>...</replaceable>
 
-BUILD           = <replaceable>dir</replaceable>
-INCDIR         += <replaceable>dir</replaceable>
-INCDIR<replaceable>name</replaceable>.c += <replaceable>...</replaceable>
-SRC            += <replaceable>name</replaceable>.c
+BUILD            = <replaceable>dir</replaceable>
+INCDIR          += <replaceable>dir</replaceable>
+INCDIR.<replaceable>name</replaceable>.c += <replaceable>...</replaceable>
+SRC             += <replaceable>name</replaceable>.c
 
 ${BUILD}/<replaceable>name</replaceable>.c:</synopsis>
 	</refsection>

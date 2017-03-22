@@ -13,8 +13,8 @@ PCFLAGS ?=
 .BEGIN::
 	${PKGCONF} ${PCFLAGS} --exists ${pkg}
 
-CFLAGS_${pkg} != ${PKGCONF} ${PCFLAGS} ${pkg} --cflags
-LIBS_${pkg}   != ${PKGCONF} ${PCFLAGS} ${pkg} --libs
+CFLAGS.${pkg} != ${PKGCONF} ${PCFLAGS} ${pkg} --cflags
+LIBS.${pkg}   != ${PKGCONF} ${PCFLAGS} ${pkg} --libs
 
 .endfor
 

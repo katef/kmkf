@@ -59,10 +59,10 @@
 <synopsis>DEP    ?= ${CC} -M
 DFLAGS ?= -MT <remark># provided per ${CC}</remark>
 
-BUILD           = <replaceable>dir</replaceable>
-INCDIR         += <replaceable>dir</replaceable>
-INCDIR<replaceable>name</replaceable>.c += <replaceable>...</replaceable>
-SRC            += <replaceable>src/name</replaceable>.c</synopsis>
+BUILD            = <replaceable>dir</replaceable>
+INCDIR          += <replaceable>dir</replaceable>
+INCDIR.<replaceable>name</replaceable>.c += <replaceable>...</replaceable>
+SRC             += <replaceable>src/name</replaceable>.c</synopsis>
 	</refsection>
 
 	<refsection>

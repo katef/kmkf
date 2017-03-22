@@ -12,8 +12,8 @@ CFLAGS += -I ${dir}
 .endfor
 
 .for src in ${SRC}
-.for dir in ${INCDIR_${src}}
-CFLAGS_${src} += -I ${dir}
+.for dir in ${INCDIR.${src}}
+CFLAGS.${src} += -I ${dir}
 .endfor
 
 .endfor
@@ -55,10 +55,10 @@ CFLAGS += -DNDEBUG
 CLEAN += ${BUILD}/${src:R}.o
 
 ${BUILD}/${src:R}.o: ${src}
-	${CC} -o $@ ${CFLAGS} ${CFLAGS_${src}} -c ${.ALLSRC:M*.c}
+	${CC} -o $@ ${CFLAGS} ${CFLAGS.${src}} -c ${.ALLSRC:M*.c}
 
 ${BUILD}/${src:R}.opic: ${src}
-	${CC} -o $@ ${CFLAGS_PIC} ${CFLAGS} ${CFLAGS_${src}} -c ${.ALLSRC:M*.c}
+	${CC} -o $@ ${CFLAGS_PIC} ${CFLAGS} ${CFLAGS.${src}} -c ${.ALLSRC:M*.c}
 
 .endfor
 

@@ -16,8 +16,8 @@ DFLAGS += -I ${dir}
 .endfor
 
 .for src in ${SRC}
-.for dir in ${INCDIR_${src}}
-DFLAGS_${src} += -I ${dir}
+.for dir in ${INCDIR.${src}}
+DFLAGS.${src} += -I ${dir}
 .endfor
 .endfor
 
@@ -47,7 +47,7 @@ DFLAGS += -ansi -pedantic
 CLEAN += ${BUILD}/${src:R}.mk
 
 ${BUILD}/${src:R}.mk: ${src}
-	${DEP} -o $@ ${DFLAGS} ${DFLAGS_${src}} -c ${.ALLSRC:M*.c}
+	${DEP} -o $@ ${DFLAGS} ${DFLAGS.${src}} -c ${.ALLSRC:M*.c}
 
 dep:: ${BUILD}/${src:R}.mk
 .if exists(${BUILD}/${src:R}.mk)

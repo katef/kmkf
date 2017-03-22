@@ -15,7 +15,7 @@ PCDIR ?= share/pkgconfig
 all::    ${BUILD}/${pc:R}
 CLEAN += ${BUILD}/${pc:R}
 
-DIR_${pc:R} ?= ${PCDIR}
+DIR.${pc:R} ?= ${PCDIR}
 
 ${BUILD}/${pc:R}: ${pc}
 	${SED} ${SEDFLAGS} -e 's,@prefix@,${PREFIX},g' ${.ALLSRC:M*.in} > $@

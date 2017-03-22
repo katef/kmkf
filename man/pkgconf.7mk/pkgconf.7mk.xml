@@ -56,8 +56,8 @@ PKG += <replaceable>pkg</replaceable></synopsis>
 	<refsection>
 		<title>Output</title>
 
-<synopsis>CFLAGS_<replaceable>pkg</replaceable> += <replaceable>...</replaceable>
-LIBS_<replaceable>pkg</replaceable>   += <replaceable>...</replaceable></synopsis>
+<synopsis>CFLAGS.<replaceable>pkg</replaceable> += <replaceable>...</replaceable>
+LIBS.<replaceable>pkg</replaceable>   += <replaceable>...</replaceable></synopsis>
 	</refsection>
 
 	<refsection>

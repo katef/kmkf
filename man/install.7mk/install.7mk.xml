@@ -43,14 +43,14 @@
 			The target subdirectory within <varname>PREFIX</varname>
 			for a given path defaults to <code><replaceable>path:H</replaceable></code>
 			and may be overridden by explicitly setting
-			<varname>DIR_<replaceable>path</replaceable></varname>
+			<varname>DIR.<replaceable>path</replaceable></varname>
 			for a particular source path.</para>
 
 		<para>File and directory modes are set as part of installation.
 			Modes default to <constant>644</constant> and <constant>755</constant>
 			for files and directories respectively,
 			and may be overridden by explicitly setting
-			<varname>MODE_<replaceable>path</replaceable></varname>
+			<varname>MODE.<replaceable>path</replaceable></varname>
 			for a particular source path.</para>
 
 		<para>There is no dependency on installed files; paths are re-copied
@@ -66,9 +66,9 @@ PREFIX       = <replaceable>dir</replaceable>
 STAGE_BUILD += <replaceable>path_build</replaceable>
 STAGE_COPY  += <replaceable>path_copy</replaceable>
 
-DIR_<replaceable>path</replaceable>  ?= ${path:H}
-MODE_<replaceable>file</replaceable> ?= 644
-MODE_<replaceable>dir</replaceable>  ?= 755
+DIR.<replaceable>path</replaceable>  ?= ${path:H}
+MODE.<replaceable>file</replaceable> ?= 644
+MODE.<replaceable>dir</replaceable>  ?= 755
 
 ${BUILD}/<replaceable>path_build</replaceable>:
 <replaceable>path_copy</replaceable>:</synopsis>

@@ -11,18 +11,18 @@ SID_CFLAGS += -s no-numeric-terminals -s no-terminals
 
 .for parser in ${PARSER}
 
-SID_${parser} ?= ${parser:R}.sid
-ACT_${parser} ?= ${parser:R}.act
+SID.${parser} ?= ${parser:R}.sid
+ACT.${parser} ?= ${parser:R}.act
 
-${parser:R}.c ${parser:R}.h: ${SID_${parser}} ${ACT_${parser}}
-	${SID} -l ansi-c ${SID_CFLAGS} ${SID_CFLAGS_${parser}} ${.ALLSRC:M*.sid} ${.ALLSRC:M*.act} ${parser:R}.c ${parser:R}.h \
+${parser:R}.c ${parser:R}.h: ${SID.${parser}} ${ACT.${parser}}
+	${SID} -l ansi-c ${SID_CFLAGS} ${SID_CFLAGS.${parser}} ${.ALLSRC:M*.sid} ${.ALLSRC:M*.act} ${parser:R}.c ${parser:R}.h \
 		|| { rm -f ${parser:R}.c ${parser}.h; false; }
 
-${parser:R}.h: ${SID_${parser}} ${ACT_${parser}}
-${parser:R}.c: ${SID_${parser}} ${ACT_${parser}}
+${parser:R}.h: ${SID.${parser}} ${ACT.${parser}}
+${parser:R}.c: ${SID.${parser}} ${ACT.${parser}}
 
 test::
-	${SID} -l test ${SID_${parser}}
+	${SID} -l test ${SID.${parser}}
 
 gen:: ${parser:R}.c ${parser:R}.h
 
