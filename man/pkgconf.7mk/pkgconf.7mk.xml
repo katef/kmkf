@@ -27,7 +27,7 @@
 
 	<refnamediv>
 		<refclass>mk</refclass>
-		<refname>dep</refname>
+		<refname>pkgconf</refname>
 		<refpurpose>Dependencies on external packages</refpurpose>
 	</refnamediv>
 
