@@ -22,7 +22,7 @@ ${BUILD}/bin/${prog}:
 	${STRIP} $@
 .endif
 
-MODE_bin/${prog} = 755
+MODE.bin/${prog} = 755
 STAGE_BUILD += bin/${prog}
 
 .endfor
