@@ -35,7 +35,7 @@ CFLAGS += -O3
 .if defined(DEBUG)
 CFLAGS += -std=c89 -pedantic
 #CFLAGS += -Werror
-CFLAGS += -Weverything -Wno-system-headers
+CFLAGS += -Wall -Wextra -Wno-system-headers
 CFLAGS += -Wno-padded # padding is not an error
 CFLAGS += -O0
 .else
