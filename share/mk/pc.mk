@@ -12,11 +12,13 @@ PCDIR ?= share/pkgconfig
 
 .for pc in ${PC}
 
-all::    ${BUILD}/${pc:R}
-CLEAN += ${BUILD}/${pc:R}
+install:: ${BUILD}/${pc:R}
+CLEAN +=  ${BUILD}/${pc:R}
 
 DIR.${pc:R} ?= ${PCDIR}
 
+# built as a dependency from the install target,
+# so that other targets do not require ${PREFIX}.
 ${BUILD}/${pc:R}: ${pc}
 	${SED} ${SEDFLAGS} -e 's,@prefix@,${PREFIX},g' ${.ALLSRC:M*.in} > $@
 
