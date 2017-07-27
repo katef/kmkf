@@ -17,7 +17,7 @@ LIBEXT ?= so
 .endif
 
 .if ${SYSTEM} == Darwin
-LDSFLAGS ?= -dynamic -flat_namespace -undefined dynamic_lookup
+LDSFLAGS ?= -dylib -flat_namespace -undefined dynamic_lookup
 .else
 LDSFLAGS ?= -shared
 .endif
