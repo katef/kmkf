@@ -11,6 +11,14 @@ LFLAGS ?=
 
 DIR += ${BUILD}/bin
 
+.if ${CC:T:Mgcc} && defined(ASAN)
+LFLAGS += -fsanitize=address
+.endif
+
+.if ${CC:T:Mclang} && defined(ASAN)
+LFLAGS += -fsanitize=address
+.endif
+
 .for prog in ${PROG}
 
 prog::   ${BUILD}/bin/${prog}

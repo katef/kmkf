@@ -29,6 +29,9 @@ CFLAGS += -O0 # or -Og if you have it
 CFLAGS += -std=c89 -pedantic
 CFLAGS += -O3
 .endif
+.if defined(ASAN)
+CFLAGS += -fsanitize=address
+.endif
 .endif
 
 .if ${CC:T:Mclang}
@@ -41,6 +44,9 @@ CFLAGS += -O0
 .else
 CFLAGS += -ansi -pedantic
 CFLAGS += -O3
+.endif
+.if defined(ASAN)
+CFLAGS += -fsanitize=address
 .endif
 .endif
 
