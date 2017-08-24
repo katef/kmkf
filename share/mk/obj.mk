@@ -30,7 +30,7 @@ CFLAGS += -std=c89 -pedantic
 CFLAGS += -O3
 .endif
 .if defined(ASAN)
-CFLAGS += -fsanitize=address
+CFLAGS += -fsanitize=address -fno-omit-frame-pointer
 .endif
 .endif
 
@@ -46,7 +46,7 @@ CFLAGS += -ansi -pedantic
 CFLAGS += -O3
 .endif
 .if defined(ASAN)
-CFLAGS += -fsanitize=address
+CFLAGS += -fsanitize=address -fno-omit-frame-pointer
 .endif
 .endif
 
