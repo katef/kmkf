@@ -15,7 +15,6 @@ CFLAGS += -I ${dir}
 .for dir in ${INCDIR.${src}}
 CFLAGS.${src} += -I ${dir}
 .endfor
-
 .endfor
 
 .if ${CC:T:Mgcc}
