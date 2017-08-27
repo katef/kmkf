@@ -72,7 +72,8 @@ ${BUILD}/lib/lib<replaceable>name</replaceable>.o:</synopsis>
 	<refsection>
 		<title>Output</title>
 
-<synopsis>CLEAN += <replaceable>...</replaceable>
+<synopsis>CLEAN += <replaceable>...
+DIR   += <replaceable>...</replaceable>
 
 lib:: ${BUILD}/lib/lib<replaceable>name</replaceable>.a</synopsis>
 	</refsection>

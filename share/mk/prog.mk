@@ -9,7 +9,9 @@ STRIP ?= strip
 
 LFLAGS ?=
 
+.if empty(DIR:M${BUILD}/bin)
 DIR += ${BUILD}/bin
+.endif
 
 .if ${CC:T:Mgcc} && defined(ASAN)
 LFLAGS += -fsanitize=address

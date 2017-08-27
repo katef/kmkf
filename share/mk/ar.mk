@@ -10,6 +10,10 @@ RANLIB ?= ar s
 
 ARFLAGS  ?= cr
 
+.if empty(DIR:M${BUILD}/lib)
+DIR += ${BUILD}/lib
+.endif
+
 .for lib in ${LIB}
 
 lib::    ${BUILD}/lib/${lib}.a

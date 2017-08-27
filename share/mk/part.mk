@@ -9,6 +9,10 @@ LD ?= ld
 
 LDRFLAGS ?=
 
+.if empty(DIR:M${BUILD}/lib)
+DIR += ${BUILD}/lib
+.endif
+
 # objects are collated for libraries to avoid passing
 # possibly conflicting filenames to ar(1)
 .for lib in ${LIB}

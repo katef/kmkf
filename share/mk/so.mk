@@ -22,6 +22,10 @@ LDSFLAGS ?= -dylib -flat_namespace -undefined dynamic_lookup
 LDSFLAGS ?= -shared
 .endif
 
+.if empty(DIR:M${BUILD}/lib)
+DIR += ${BUILD}/lib
+.endif
+
 .for lib in ${LIB}
 
 lib::    ${BUILD}/lib/${lib}.${LIBEXT}

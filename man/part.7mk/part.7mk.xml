@@ -64,7 +64,8 @@ PART     += <replaceable>part</replaceable>
 	<refsection>
 		<title>Output</title>
 
-<synopsis>CLEAN += <replaceable>...</replaceable>
+<synopsis>CLEAN += <replaceable>...
+DIR   += <replaceable>...</replaceable>
 
 ${BUILD}/lib/${part}.o: <replaceable>obj</replaceable>.o ...</synopsis>
 	</refsection>
