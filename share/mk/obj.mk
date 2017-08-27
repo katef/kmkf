@@ -58,6 +58,7 @@ CFLAGS += -DNDEBUG
 .for src in ${SRC}
 
 CLEAN += ${BUILD}/${src:R}.o
+CLEAN += ${BUILD}/${src:R}.opic
 
 ${BUILD}/${src:R}.o: ${src}
 	${CC} -o $@ ${CFLAGS} ${CFLAGS.${src}} -c ${.ALLSRC:M*.c}
