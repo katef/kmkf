@@ -9,8 +9,11 @@ MKDIR ?= mkdir
 
 mkdir:: ${DIR}
 
+${BUILD}:
+	${MKDIR} -p ${BUILD}
+
 .for dir in ${DIR}
 ${dir}: ${dir:H}
-	${MKDIR} -p ${dir}
+	${MKDIR} ${dir}
 .endfor
 
