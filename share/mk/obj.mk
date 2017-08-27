@@ -24,12 +24,13 @@ CFLAGS += -std=c89 -pedantic
 CFLAGS += -Wall -Wextra -Wno-system-headers
 CFLAGS += -ggdb
 CFLAGS += -O0 # or -Og if you have it
+CFLAGS += -fno-omit-frame-pointer
 .else
 CFLAGS += -std=c89 -pedantic
 CFLAGS += -O3
 .endif
 .if defined(ASAN)
-CFLAGS += -fsanitize=address -fno-omit-frame-pointer
+CFLAGS += -fsanitize=address
 .endif
 .endif
 
@@ -40,12 +41,13 @@ CFLAGS += -std=c89 -pedantic
 CFLAGS += -Wall -Wextra -Wno-system-headers
 CFLAGS += -Wno-padded # padding is not an error
 CFLAGS += -O0
+CFLAGS += -fno-omit-frame-pointer
 .else
 CFLAGS += -ansi -pedantic
 CFLAGS += -O3
 .endif
 .if defined(ASAN)
-CFLAGS += -fsanitize=address -fno-omit-frame-pointer
+CFLAGS += -fsanitize=address
 .endif
 .endif
 
