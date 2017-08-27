@@ -6,7 +6,7 @@
 #
 
 REMOVE ?= rm -f
-RMDIR  ?= rm -r
+RMDIR  ?= rmdir
 
 .for dir in ${DIR}
 clean::

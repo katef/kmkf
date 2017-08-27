@@ -48,7 +48,7 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>RMDIR  ?= rm -r
+<synopsis>RMDIR  ?= rmdir
 REMOVE ?= rm -f
 
 BUILD   = <replaceable>dir</replaceable>
