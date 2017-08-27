@@ -10,7 +10,7 @@ MKDIR ?= mkdir
 mkdir:: ${DIR}
 
 .for dir in ${DIR}
-${dir}:
+${dir}: ${dir:H}
 	${MKDIR} -p ${dir}
 .endfor
 
