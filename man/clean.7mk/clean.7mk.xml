@@ -48,8 +48,8 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>RMDIR  ?= rmdir
-REMOVE ?= rm -f
+<synopsis>REMOVE ?= rm -f
+RMDIR  ?= rmdir
 
 BUILD   = <replaceable>dir</replaceable>
 DIR    += <replaceable>dir</replaceable>
