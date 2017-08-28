@@ -23,6 +23,11 @@ mkdir:: ${dir}
 .endif
 .endfor
 
+# mkdir -p is used for ${BUILD} because that's used-specified
+# and we don't know what directories might exist above that.
+# Whereas for directories beneath it, we ought to account for
+# them all and so purposefully do not use -p.
+
 ${BUILD}:
 	${MKDIR} -p ${BUILD}
 
