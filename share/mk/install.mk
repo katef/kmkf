@@ -60,7 +60,7 @@ install:: ${stage}
 # This does mean that the uninstall target will leave bin, lib etc behind
 # for the case where ${PREFIX} is a directory just for this package.
 
-uninstall:
+uninstall::
 .for stage in ${STAGE_BUILD}
 	${REMOVE} ${PREFIX}/${DIR.${stage}}/${stage:T}
 .endfor
