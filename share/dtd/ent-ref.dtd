@@ -13,6 +13,7 @@
 <!ENTITY cc "<citerefentry role='dontlink'><refentrytitle>cc</refentrytitle> %vol.1;</citerefentry>">
 <!ENTITY cd "<citerefentry role='dontlink'><refentrytitle>cd</refentrytitle> %vol.1;</citerefentry>">
 <!ENTITY rm "<citerefentry role='dontlink'><refentrytitle>rm</refentrytitle> %vol.1;</citerefentry>">
+<!ENTITY rmdir "<citerefentry role='dontlink'><refentrytitle>rmdir</refentrytitle> %vol.1;</citerefentry>">
 <!ENTITY chmod "<citerefentry role='dontlink'><refentrytitle>chmod</refentrytitle> %vol.1;</citerefentry>">
 <!ENTITY make "<citerefentry role='dontlink'><refentrytitle>make</refentrytitle> %vol.1;</citerefentry>">
 <!ENTITY mkdir "<citerefentry role='dontlink'><refentrytitle>mkdir</refentrytitle> %vol.1;</citerefentry>">

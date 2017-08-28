@@ -65,7 +65,7 @@ CLEAN  += <replaceable>file</replaceable></synopsis>
 	<refsection>
 		<title>See Also</title>
 
-		<para>&kmkf.7mk;, &rm;.</para>
+		<para>&kmkf.7mk;, &rm;, &rmdir;.</para>
 	</refsection>
 </refentry>
 
