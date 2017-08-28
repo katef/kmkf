@@ -54,13 +54,17 @@
 			for a particular source path.</para>
 
 		<para>There is no dependency on installed files; paths are re-copied
-			each time the <code>install::</code> target is called.</para>
+			each time the <code>install::</code> target is called,
+			and removed each time the <code>uninstall::</code> target is called..</para>
 	</refsection>
 
 	<refsection>
 		<title>Input</title>
 
 <synopsis>INSTALL ?= install
+
+REMOVE ?= rm -f
+RMDIR  ?= rmdir
 
 PREFIX       = <replaceable>dir</replaceable>
 STAGE_BUILD += <replaceable>path_build</replaceable>
@@ -77,13 +81,14 @@ ${BUILD}/<replaceable>path_build</replaceable>:
 	<refsection>
 		<title>Output</title>
 
-		<synopsis>install::</synopsis>
+		<synopsis>install::
+uninstall::</synopsis>
 	</refsection>
 
 	<refsection>
 		<title>See Also</title>
 
-		<para>&kmkf.7mk;, &install;, &chmod;.</para>
+		<para>&kmkf.7mk;, &chmod;, &install;, &rm;, &rmdir;.</para>
 	</refsection>
 </refentry>
 

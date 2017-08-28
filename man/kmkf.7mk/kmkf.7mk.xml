@@ -140,6 +140,7 @@
 
 			<varlistentry>
 				<term><code>install::</code></term>
+				<term><code>uninstall::</code></term>
 
 				<listitem>
 					<para>Stage files for packaging.</para>
