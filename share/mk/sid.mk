@@ -15,7 +15,8 @@ SID.${parser} ?= ${parser:R}.sid
 ACT.${parser} ?= ${parser:R}.act
 
 ${parser:R}.c ${parser:R}.h: ${SID.${parser}} ${ACT.${parser}}
-	${SID} -l ansi-c ${SID_CFLAGS} ${SID_CFLAGS.${parser}} ${.ALLSRC:M*.sid} ${.ALLSRC:M*.act} ${parser:R}.c ${parser:R}.h \
+	${SID} -l ansi-c ${SID_CFLAGS} ${SID_CFLAGS.${parser}} \
+		${.ALLSRC:M*.sid} ${.ALLSRC:M*.act} ${parser:R}.c ${parser:R}.h \
 		|| { rm -f ${parser:R}.c ${parser:R}.h; false; }
 
 ${parser:R}.h: ${SID.${parser}} ${ACT.${parser}}

@@ -20,7 +20,8 @@ DIR.${pc:R} ?= ${PCDIR}
 # built as a dependency from the install target,
 # so that other targets do not require ${PREFIX}.
 ${BUILD}/${pc:R}: ${pc}
-	${SED} ${SEDFLAGS} -e 's,@prefix@,${PREFIX},g' ${.ALLSRC:M*.in} > $@
+	${SED} ${SEDFLAGS} ${SEDFLAGS.${pc}} \
+		-e 's,@prefix@,${PREFIX},g' ${.ALLSRC:M*.in} > $@
 
 STAGE_BUILD += ${pc:R}
 

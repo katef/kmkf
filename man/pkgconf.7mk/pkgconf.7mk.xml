@@ -47,10 +47,11 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>PKGCONF ?= pkgconf <remark># or pkg-config</remark>
-PCFLAGS ?=
+<synopsis>PKGCONF        ?= pkgconf <remark># or pkg-config</remark>
+PCFLAGS        +=
+PCFLAGS.<replaceable>pkg</replaceable> +=
 
-PKG += <replaceable>pkg</replaceable></synopsis>
+PKG            += <replaceable>pkg</replaceable></synopsis>
 	</refsection>
 
 	<refsection>

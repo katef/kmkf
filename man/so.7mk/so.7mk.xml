@@ -52,11 +52,12 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>LD       ?= ld
-LDSFLAGS ?= -shared
+<synopsis>LD                  ?= ld
+LDSFLAGS            += -shared
+LDSFLAGS.lib<replaceable>name</replaceable> +=
 
-BUILD     = <replaceable>dir</replaceable>
-LIB      += lib<replaceable>name</replaceable>
+BUILD                = <replaceable>dir</replaceable>
+LIB                 += lib<replaceable>name</replaceable>
 
 ${BUILD}/lib/lib<replaceable>name</replaceable>.o:</synopsis>
 	</refsection>

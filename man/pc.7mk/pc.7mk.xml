@@ -55,13 +55,14 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>SED      ?= sed
-SEDFLAGS ?=
+<synopsis>SED                    ?= sed
+SEDFLAGS               +=
+SEDFLAGS.<replaceable>name</replaceable>.pc.in +=
 
-PCDIR    ?= share/pkgconfig <remark># installation directory</remark>
+PCDIR                  ?= share/pkgconfig <remark># installation directory</remark>
 
-BUILD     = <replaceable>dir</replaceable>
-PC       += <replaceable>name</replaceable>.pc.in</synopsis>
+BUILD                   = <replaceable>dir</replaceable>
+PC                     += <replaceable>name</replaceable>.pc.in</synopsis>
 	</refsection>
 
 	<refsection>

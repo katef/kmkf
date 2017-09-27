@@ -32,7 +32,7 @@ lib::    ${BUILD}/lib/${lib}.${LIBEXT}
 CLEAN += ${BUILD}/lib/${lib}.${LIBEXT}
 
 ${BUILD}/lib/${lib}.${LIBEXT}: ${BUILD}/lib/${lib}.opic
-	${LD} -o $@ ${LDSFLAGS} ${.ALLSRC:M*.opic}
+	${LD} -o $@ ${LDSFLAGS} ${LDSFLAGS.${lib}} ${.ALLSRC:M*.opic}
 
 STAGE_BUILD += lib/${lib}.${LIBEXT}
 

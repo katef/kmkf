@@ -25,10 +25,10 @@ CLEAN += ${BUILD}/lib/${part}.o
 CLEAN += ${BUILD}/lib/${part}.opic
 
 ${BUILD}/lib/${part}.o:
-	${LD} -r -o $@ ${.ALLSRC:M*.o} ${LDRFLAGS}
+	${LD} -r -o $@ ${.ALLSRC:M*.o} ${LDRFLAGS} ${LDRFLAGS.${part}}
 
 ${BUILD}/lib/${part}.opic:
-	${LD} -r -o $@ ${.ALLSRC:M*.opic} ${LDRFLAGS}
+	${LD} -r -o $@ ${.ALLSRC:M*.opic} ${LDRFLAGS} ${LDRFLAGS.${part}}
 
 .endfor
 

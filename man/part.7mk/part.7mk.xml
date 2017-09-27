@@ -51,12 +51,13 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>LD       ?= ld
-LDRFLAGS ?=
+<synopsis>LD               ?= ld
+LDRFLAGS         +=
+LDRFLAGS.<replaceable>name</replaceable> +=
 
-BUILD     = <replaceable>dir</replaceable>
-LIB      += <replaceable>lib</replaceable>
-PART     += <replaceable>part</replaceable>
+BUILD             = <replaceable>dir</replaceable>
+LIB              += <replaceable>lib</replaceable>
+PART             += <replaceable>part</replaceable>
 
 <replaceable>obj</replaceable>.o ...:</synopsis>
 	</refsection>

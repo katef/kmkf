@@ -45,10 +45,11 @@
 	<refsection>
 		<title>Input</title>
 
-<synopsis>SID        ?= sid
-SID_CFLAGS +=
+<synopsis>SID          ?= sid
+SID_CFLAGS             +=
+SID_CFLAGS.<replaceable>name</replaceable>.sid +=
 
-PARSER     += <replaceable>name</replaceable>.sid
+PARSER                 += <replaceable>name</replaceable>.sid
 
 <replaceable>name</replaceable>.sid:</synopsis>
 	</refsection>

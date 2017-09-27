@@ -11,10 +11,10 @@ PCFLAGS ?=
 .for pkg in ${PKG}
 
 .BEGIN::
-	${PKGCONF} ${PCFLAGS} --exists ${pkg}
+	${PKGCONF} ${PCFLAGS} ${PCFLAGS.${pkg}} --exists ${pkg}
 
-CFLAGS.${pkg} != ${PKGCONF} ${PCFLAGS} ${pkg} --cflags
-LIBS.${pkg}   != ${PKGCONF} ${PCFLAGS} ${pkg} --libs
+CFLAGS.${pkg} != ${PKGCONF} ${PCFLAGS} ${PCFLAGS.${pkg}} ${pkg} --cflags
+LIBS.${pkg}   != ${PKGCONF} ${PCFLAGS} ${PCFLAGS.${pkg}} ${pkg} --libs
 
 .endfor
 
