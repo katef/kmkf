@@ -61,7 +61,7 @@ SEDFLAGS ?=
 PCDIR    ?= share/pkgconfig <remark># installation directory</remark>
 
 BUILD     = <replaceable>dir</replaceable>
-PC       += <replaceable>name</replaceable>.pc.in
+PC       += <replaceable>name</replaceable>.pc.in</synopsis>
 	</refsection>
 
 	<refsection>

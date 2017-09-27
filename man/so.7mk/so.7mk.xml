@@ -64,7 +64,7 @@ ${BUILD}/lib/lib<replaceable>name</replaceable>.o:</synopsis>
 	<refsection>
 		<title>Output</title>
 
-<synopsis>CLEAN += <replaceable>...
+<synopsis>CLEAN += <replaceable>...</replaceable>
 DIR   += <replaceable>...</replaceable>
 
 lib:: ${BUILD}/lib/lib<replaceable>name</replaceable>.so</synopsis>
