@@ -46,14 +46,20 @@
 			<replaceable>lib</replaceable> name.
 			This is intended to provide convenient object files
 			suitable for use by &ar.7mk; and &so.7mk;.</para>
+
+		<para>Global symbols may be restricted to a given whitelist by
+			setting <varname>SYMS.<replaceable>part</replaceable></varname>
+			to a file listing symbol names.</para>
 	</refsection>
 
 	<refsection>
 		<title>Input</title>
 
 <synopsis>LD               ?= ld
+OBJCOPY          ?= ld
 LDRFLAGS         +=
-LDRFLAGS.<replaceable>name</replaceable> +=
+LDRFLAGS.<replaceable>part</replaceable> +=
+SYMS.<replaceable>part</replaceable>     += <replaceable>file</replaceable>
 
 BUILD             = <replaceable>dir</replaceable>
 LIB              += <replaceable>lib</replaceable>

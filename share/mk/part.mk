@@ -6,6 +6,10 @@
 #
 
 LD ?= ld
+UNAME ?= uname
+UNAME_SYSTEM != ${UNAME} -s
+SYSTEM ?= ${UNAME_SYSTEM}
+OBJCOPY ?= objcopy
 
 LDRFLAGS ?=
 
@@ -26,9 +30,19 @@ CLEAN += ${BUILD}/lib/${part}.opic
 
 ${BUILD}/lib/${part}.o:
 	${LD} -r -o $@ ${.ALLSRC:M*.o} ${LDRFLAGS} ${LDRFLAGS.${part}}
+.if ${SYSTEM} != Darwin
+.if !empty(SYMS.${part})
+	${OBJCOPY} --keep-global-symbols=${SYMS.${part}} $@ $@
+.endif
+.endif
 
 ${BUILD}/lib/${part}.opic:
 	${LD} -r -o $@ ${.ALLSRC:M*.opic} ${LDRFLAGS} ${LDRFLAGS.${part}}
+.if ${SYSTEM} != Darwin
+.if !empty(SYMS.${part})
+	${OBJCOPY} --keep-global-symbols=${SYMS.${part}} $@ $@
+.endif
+.endif
 
 .endfor
 
