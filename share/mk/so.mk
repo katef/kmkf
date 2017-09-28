@@ -9,6 +9,7 @@ LD ?= ld
 UNAME ?= uname
 UNAME_SYSTEM != ${UNAME} -s
 SYSTEM ?= ${UNAME_SYSTEM}
+MACOSX_VERSION_MIN ?= 10.6
 
 .if ${SYSTEM} == Darwin
 LIBEXT ?= dylib
@@ -20,6 +21,12 @@ LIBEXT ?= so
 LDSFLAGS ?= -dylib -flat_namespace -undefined dynamic_lookup
 .else
 LDSFLAGS ?= -shared
+.endif
+
+.if ${CC:T:Mgcc} || ${CC:T:Mclang}
+.if ${SYSTEM} == Darwin
+LDSFLAGS += -macosx_version_min ${MACOSX_VERSION_MIN}
+.endif
 .endif
 
 .if empty(DIR:M${BUILD}/lib)

@@ -5,6 +5,11 @@
 # See LICENCE for the full copyright terms.
 #
 
+UNAME ?= uname
+UNAME_SYSTEM != ${UNAME} -s
+SYSTEM ?= ${UNAME_SYSTEM}
+MACOSX_VERSION_MIN ?= 10.6
+
 CFLAGS_PIC ?= -fPIC
 
 .for dir in ${INCDIR}
@@ -55,6 +60,12 @@ CFLAGS += -fsanitize=address
 CFLAGS += -g
 .else
 CFLAGS += -DNDEBUG
+.endif
+
+.if ${CC:T:Mgcc} || ${CC:T:Mclang}
+.if ${SYSTEM} == Darwin
+CFLAGS += -mmacosx-version-min=${MACOSX_VERSION_MIN}
+.endif
 .endif
 
 .for src in ${SRC}
