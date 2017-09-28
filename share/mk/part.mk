@@ -11,6 +11,9 @@ UNAME_SYSTEM != ${UNAME} -s
 SYSTEM ?= ${UNAME_SYSTEM}
 OBJCOPY ?= objcopy
 
+SED      ?= sed
+SEDFLAGS ?=
+
 LDRFLAGS ?=
 
 .if empty(DIR:M${BUILD}/lib)
@@ -27,6 +30,20 @@ PART += ${lib}
 
 CLEAN += ${BUILD}/lib/${part}.o
 CLEAN += ${BUILD}/lib/${part}.opic
+
+.if ${SYSTEM} == Darwin
+.if !empty(SYMS.${part})
+
+${BUILD}/lib/${part}.o:    ${BUILD}/${SYMS.${part}}-macho
+${BUILD}/lib/${part}.opic: ${BUILD}/${SYMS.${part}}-macho
+
+${BUILD}/${SYMS.${part}}-macho: ${SYMS.${part}}
+	${SED} ${SEDFLAGS} -e '/^[^#]/ s,^,_,' ${SYMS.${part}} > $@
+
+LDRFLAGS.${part} += -exported_symbols_list ${BUILD}/${SYMS.${part}}-macho
+
+.endif
+.endif
 
 ${BUILD}/lib/${part}.o:
 	${LD} -r -o $@ ${.ALLSRC:M*.o} ${LDRFLAGS} ${LDRFLAGS.${part}}
