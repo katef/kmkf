@@ -6,6 +6,7 @@
 #
 
 LD ?= ld
+STRIP ?= strip
 UNAME ?= uname
 UNAME_SYSTEM != ${UNAME} -s
 SYSTEM ?= ${UNAME_SYSTEM}
@@ -52,6 +53,9 @@ ${BUILD}/lib/${part}.o:
 	${OBJCOPY} --keep-global-symbols=${SYMS.${part}} $@ $@
 .endif
 .endif
+.if !defined(DEBUG) && !defined(NOSTRIP)
+	${STRIP} -x $@
+.endif
 
 ${BUILD}/lib/${part}.opic:
 	${LD} -r -o $@ ${.ALLSRC:M*.opic} ${LDRFLAGS} ${LDRFLAGS.${part}}
@@ -59,6 +63,9 @@ ${BUILD}/lib/${part}.opic:
 .if !empty(SYMS.${part})
 	${OBJCOPY} --keep-global-symbols=${SYMS.${part}} $@ $@
 .endif
+.endif
+.if !defined(DEBUG) && !defined(NOSTRIP)
+	${STRIP} -x $@
 .endif
 
 .endfor
