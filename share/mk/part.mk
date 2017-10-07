@@ -43,6 +43,8 @@ ${BUILD}/${SYMS.${part}}-macho: ${SYMS.${part}}
 
 LDRFLAGS.${part} += -exported_symbols_list ${BUILD}/${SYMS.${part}}-macho
 
+CLEAN += ${BUILD}/${SYMS.${part}}-macho
+
 .endif
 .endif
 
