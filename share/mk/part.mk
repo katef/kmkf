@@ -32,19 +32,28 @@ PART += ${lib}
 CLEAN += ${BUILD}/lib/${part}.o
 CLEAN += ${BUILD}/lib/${part}.opic
 
-.if ${SYSTEM} == Darwin
 .if !empty(SYMS.${part})
 
-${BUILD}/lib/${part}.o:    ${BUILD}/${SYMS.${part}}-macho
-${BUILD}/lib/${part}.opic: ${BUILD}/${SYMS.${part}}-macho
+${BUILD}/lib/${part}.o:    ${BUILD}/${SYMS.${part}}
+${BUILD}/lib/${part}.opic: ${BUILD}/${SYMS.${part}}
 
-${BUILD}/${SYMS.${part}}-macho: ${SYMS.${part}}
-	${SED} ${SEDFLAGS} -e '/^[^#]/ s,^,_,' ${SYMS.${part}} > $@
+# not all symbol-stripping mechanisms support comments
+SEDFLAGS.${SYMS.${part}} += -e 's,\#.*,,; /^$$/ d'
 
-LDRFLAGS.${part} += -exported_symbols_list ${BUILD}/${SYMS.${part}}-macho
+.if ${SYSTEM} == Darwin
+SEDFLAGS.${SYMS.${part}} += -e 's,^,_,'
+.endif
 
-CLEAN += ${BUILD}/${SYMS.${part}}-macho
+${BUILD}/${SYMS.${part}}: ${SYMS.${part}}
+	${SED} ${SEDFLAGS} ${SEDFLAGS.${SYMS.${part}}} ${SYMS.${part}} > $@
 
+CLEAN += ${BUILD}/${SYMS.${part}}
+
+.endif
+
+.if !empty(SYMS.${part})
+.if ${SYSTEM} == Darwin
+LDRFLAGS.${part} += -exported_symbols_list ${BUILD}/${SYMS.${part}}
 .endif
 .endif
 
@@ -52,7 +61,7 @@ ${BUILD}/lib/${part}.o:
 	${LD} -r -o $@ ${.ALLSRC:M*.o} ${LDRFLAGS} ${LDRFLAGS.${part}}
 .if ${SYSTEM} != Darwin
 .if !empty(SYMS.${part})
-	${OBJCOPY} --keep-global-symbols=${SYMS.${part}} $@ $@
+	${OBJCOPY} --keep-global-symbols=${BUILD}/${SYMS.${part}} $@ $@
 .endif
 .endif
 .if !defined(DEBUG) && !defined(NOSTRIP)
@@ -63,7 +72,7 @@ ${BUILD}/lib/${part}.opic:
 	${LD} -r -o $@ ${.ALLSRC:M*.opic} ${LDRFLAGS} ${LDRFLAGS.${part}}
 .if ${SYSTEM} != Darwin
 .if !empty(SYMS.${part})
-	${OBJCOPY} --keep-global-symbols=${SYMS.${part}} $@ $@
+	${OBJCOPY} --keep-global-symbols=${BUILD}/${SYMS.${part}} $@ $@
 .endif
 .endif
 .if !defined(DEBUG) && !defined(NOSTRIP)
