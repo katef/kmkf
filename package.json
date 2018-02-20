@@ -1,0 +1,21 @@
+{
+	"name": "kmkf",
+	"version": "0.0.0",
+	"description": "General purpose BSD Makefiles",
+	"keywords": [
+		"build-system",
+		"makefile",
+		"bmake"
+	],
+	"license": "BSD-2-Clause",
+	"homepage": "https://github.com/katef/kmkf",
+	"bugs": "https://github.com/katef/kmkf/issues",
+	"repository": { "type": "git", "url": "https://github.com/katef/kmkf.git" },
+	"author": "Kate F <kate@elide.org> (http://elide.org)",
+	"contributors": [
+	],
+
+	"devDependencies": {
+	}
+}
+
