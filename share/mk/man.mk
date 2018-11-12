@@ -6,14 +6,16 @@
 #
 
 XSLTPROC ?= xsltproc
+XMLLINT ?= xmllint
 GZIP ?= gzip -fq
 
 XSLT_FLAGS += --nomkdir --nonet
 
+XMLLINT_FLAGS += --nonet
+
 XML_FLAGS += --xinclude
-XML_FLAGS += --encoding utf8
+#XML_FLAGS += --encoding utf8
 XML_FLAGS += --path share/dtd
-XML_FLAGS += --path ${HOME}/gh/mdb/share/dtd
 
 # The approach for producing roff here is a stand-in until I get around to
 # writing what I'd really like. My eventual aim is to output mdoc macros
@@ -66,9 +68,10 @@ CLEAN += ${BUILD}/${man:H}/${man:T:R}.gz
 STAGE_COPY += ${BUILD}/${man:H}/${man:T:R}.gz
 DIR.${BUILD}/${man:H}/${man:T:R}.gz = man/man${man:T:R:E}
 
-.endfor
+test::
+	${XMLLINT} --noout --dtdattr ${XMLLINT_FLAGS} ${XML_FLAGS} ${XML_FLAGS.${src}} ${man}
 
-# TODO: test::
+.endfor
 
 .endif
 
