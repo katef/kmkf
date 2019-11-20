@@ -6,7 +6,9 @@
 	See LICENCE for the full copyright terms.
 -->
 
-<!DOCTYPE refentry SYSTEM "minidocbook.dtd">
+<!DOCTYPE refentry SYSTEM "minidocbook.dtd" [
+	<!ENTITY efence  "<ulink url='https://elinux.org/Electric_Fence'>Electric Fence</ulink>">
+]>
 <refentry>
 	<refentryinfo>
 		<title>&kmkf; Manual</title>
@@ -51,6 +53,13 @@
 				<listitem>
 					<para>If the compiler supports it, build with
 						Address Sanitizer.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><code>EFENCE</code></term>
+
+				<listitem>
+					<para>Link with the &efence; memory allocation debugger.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>

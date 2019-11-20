@@ -21,6 +21,10 @@ LFLAGS += -fsanitize=address
 LFLAGS += -fsanitize=address
 .endif
 
+.if defined(EFENCE)
+LFLAGS += -lefence
+.endif
+
 .for prog in ${PROG}
 
 prog::   ${BUILD}/bin/${prog}
