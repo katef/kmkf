@@ -5,7 +5,7 @@
 # See LICENCE for the full copyright terms.
 #
 
-LD ?= ld
+SOLD ?= ${CC}
 UNAME ?= uname
 UNAME_SYSTEM != ${UNAME} -s
 SYSTEM ?= ${UNAME_SYSTEM}
@@ -39,7 +39,7 @@ lib::    ${BUILD}/lib/${lib}.${LIBEXT}
 CLEAN += ${BUILD}/lib/${lib}.${LIBEXT}
 
 ${BUILD}/lib/${lib}.${LIBEXT}: ${BUILD}/lib/${lib}.opic
-	${LD} -o $@ ${LDSFLAGS} ${LDSFLAGS.${lib}} ${.ALLSRC:M*.opic}
+	${SOLD} -o $@ ${LDSFLAGS} ${LDSFLAGS.${lib}} ${.ALLSRC:M*.opic}
 
 STAGE_BUILD += lib/${lib}.${LIBEXT}
 
