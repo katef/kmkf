@@ -20,6 +20,9 @@ LFLAGS += -fsanitize=address
 .if ${CC:T:Mclang} && defined(ASAN)
 LFLAGS += -fsanitize=address
 .endif
+.if ${CC:T:Mclang} && defined(MSAN)
+LFLAGS += -fsanitize=memory -fPIE -pie
+.endif
 
 .if defined(EFENCE)
 LFLAGS += -lefence

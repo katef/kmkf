@@ -48,18 +48,11 @@
 
 		<variablelist>
 			<varlistentry>
-				<term><code>ASAN</code></term>
+				<term><code>ASAN</code>/<code>MSAN</code></term>
 
 				<listitem>
 					<para>If the compiler supports it, build with
-						Address Sanitizer.</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term><code>EFENCE</code></term>
-
-				<listitem>
-					<para>Link with the &efence; memory allocation debugger.</para>
+						Address Sanitizer or Memory Sanitizer.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
@@ -68,6 +61,13 @@
 				<listitem>
 					<para>Adjusts the build to add and preserve debugging
 						information. Implies <code>NOSTRIP</code>.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><code>EFENCE</code></term>
+
+				<listitem>
+					<para>Link with the &efence; memory allocation debugger.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>

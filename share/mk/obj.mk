@@ -54,6 +54,9 @@ CFLAGS += -O3
 .if defined(ASAN)
 CFLAGS += -fsanitize=address
 .endif
+.if defined(MSAN)
+CFLAGS += -fsanitize=memory -fPIE
+.endif
 .endif
 
 .if defined(DEBUG)

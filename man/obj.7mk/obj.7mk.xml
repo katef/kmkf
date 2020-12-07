@@ -55,6 +55,14 @@
 
 		<variablelist>
 			<varlistentry>
+				<term><code>ASAN</code>/<code>MSAN</code></term>
+
+				<listitem>
+					<para>If the compiler supports it, build with
+						Address Sanitizer or Memory Sanitizer.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
 				<term><code>DEBUG</code></term>
 
 				<listitem>
