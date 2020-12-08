@@ -38,7 +38,8 @@ CFLAGS += -O3
 CFLAGS += -fsanitize=address
 .endif
 .if defined(UBSAN)
-CFLAGS += -fsanitize=undefined,float-divide-by-zero,unsigned-integer-overflow,implicit-conversion,bounds
+# no unsigned-integer-overflow for gcc
+CFLAGS += -fsanitize=undefined,float-divide-by-zero,implicit-conversion,bounds
 .endif
 .endif
 
