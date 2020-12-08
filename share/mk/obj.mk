@@ -37,6 +37,9 @@ CFLAGS += -O3
 .if defined(ASAN)
 CFLAGS += -fsanitize=address
 .endif
+.if defined(UBSAN)
+CFLAGS += -fsanitize=undefined,float-divide-by-zero,unsigned-integer-overflow,implicit-conversion,bounds
+.endif
 .endif
 
 .if ${CC:T:Mclang}
@@ -56,6 +59,9 @@ CFLAGS += -fsanitize=address
 .endif
 .if defined(MSAN)
 CFLAGS += -fsanitize=memory -fPIE
+.endif
+.if defined(UBSAN)
+CFLAGS += -fsanitize=undefined,float-divide-by-zero,unsigned-integer-overflow,implicit-conversion,bounds
 .endif
 .endif
 

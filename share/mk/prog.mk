@@ -16,12 +16,18 @@ DIR += ${BUILD}/bin
 .if ${CC:T:Mgcc} && defined(ASAN)
 LFLAGS += -fsanitize=address
 .endif
+.if ${CC:T:Mgcc} && defined(UBSAN)
+LFLAGS += -fsanitize=undefined,float-divide-by-zero,unsigned-integer-overflow,implicit-conversion,bounds
+.endif
 
 .if ${CC:T:Mclang} && defined(ASAN)
 LFLAGS += -fsanitize=address
 .endif
 .if ${CC:T:Mclang} && defined(MSAN)
 LFLAGS += -fsanitize=memory -fPIE -pie
+.endif
+.if ${CC:T:Mclang} && defined(UBSAN)
+LFLAGS += -fsanitize=undefined,float-divide-by-zero,unsigned-integer-overflow,implicit-conversion,bounds
 .endif
 
 .if defined(EFENCE)
