@@ -5,7 +5,14 @@
 # See LICENCE for the full copyright terms.
 #
 
+.if ${CC:T:Memcc}
+# emcc -r is undocumented, but suggested by an error message.
+# However it does seem to do the same job as ld -r
+LD ?= ${CC}
+.else
 LD ?= ld
+.endif
+
 STRIP ?= strip
 UNAME ?= uname
 UNAME_SYSTEM != ${UNAME} -s
@@ -59,6 +66,7 @@ LDRFLAGS.${part} += -exported_symbols_list ${BUILD}/${SYMS.${part}}
 
 ${BUILD}/lib/${part}.o:
 	${LD} -r -o $@ ${.ALLSRC:M*.o} ${LDRFLAGS} ${LDRFLAGS.${part}}
+.if !${CC:T:Memcc}
 .if ${SYSTEM} != Darwin
 .if !empty(SYMS.${part})
 	${OBJCOPY} --keep-global-symbols=${BUILD}/${SYMS.${part}} $@ $@
@@ -66,10 +74,12 @@ ${BUILD}/lib/${part}.o:
 .endif
 .if !defined(DEBUG) && !defined(NOSTRIP)
 	${STRIP} -x $@
+.endif
 .endif
 
 ${BUILD}/lib/${part}.opic:
 	${LD} -r -o $@ ${.ALLSRC:M*.opic} ${LDRFLAGS} ${LDRFLAGS.${part}}
+.if !${CC:T:Memcc}
 .if ${SYSTEM} != Darwin
 .if !empty(SYMS.${part})
 	${OBJCOPY} --keep-global-symbols=${BUILD}/${SYMS.${part}} $@ $@
@@ -77,6 +87,7 @@ ${BUILD}/lib/${part}.opic:
 .endif
 .if !defined(DEBUG) && !defined(NOSTRIP)
 	${STRIP} -x $@
+.endif
 .endif
 
 .endfor

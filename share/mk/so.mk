@@ -5,7 +5,14 @@
 # See LICENCE for the full copyright terms.
 #
 
+.if ${CC:T:Memcc}
+# emcc -r is undocumented, but suggested by an error message.
+# However it does seem to do the same job as ld -r
+LD ?= ${CC}
+.else
 LD ?= ld
+.endif
+
 UNAME ?= uname
 UNAME_SYSTEM != ${UNAME} -s
 SYSTEM ?= ${UNAME_SYSTEM}

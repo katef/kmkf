@@ -42,7 +42,8 @@
 
 		<para>Compilation flags default differently per compiler
 			name specified by <varname>CC</varname>.
-			The currently recognised compilers are <code>gcc</code> and <code>clang</code>.
+			The currently recognised compilers are <code>gcc</code>, <code>clang</code>
+			and <code>emcc</code>.
 			<varname>CFLAGS</varname> defaults to per-compiler settings for ISO C90.
 			Individual <varname>CFLAGS</varname> specific to a particular
 			source file may be specified by

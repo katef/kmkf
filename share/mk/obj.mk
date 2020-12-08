@@ -22,6 +22,22 @@ CFLAGS.${src} += -I ${dir}
 .endfor
 .endfor
 
+.if ${CC:T:Memcc}
+NOSTRIP = 1
+.endif
+
+.if ${CC:T:Memcc}
+.if defined(DEBUG)
+# TODO: --emit-symbol-map
+CFLAGS += -O1 -g4
+CFLAGS += -profiling
+.else
+CFLAGS += -Oz -g0
+.endif
+CFLAGS += -s WASM=1
+CFLAGS += -Wno-warn-absolute-paths
+.endif
+
 .if ${CC:T:Mgcc}
 .if defined(DEBUG)
 CFLAGS += -std=c89 -pedantic
