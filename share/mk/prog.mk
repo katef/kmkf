@@ -17,8 +17,8 @@ DIR += ${BUILD}/bin
 LFLAGS += -fsanitize=address
 .endif
 .if ${CC:T:Mgcc} && defined(UBSAN)
-# no unsigned-integer-overflow for gcc
-LFLAGS += -fsanitize=undefined,float-divide-by-zero,implicit-conversion,bounds
+# no unsigned-integer-overflow,implicit-conversion for gcc
+LFLAGS += -fsanitize=undefined,float-divide-by-zero,bounds
 .endif
 
 .if ${CC:T:Mclang} && defined(ASAN)
