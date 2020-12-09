@@ -32,7 +32,8 @@ NOSTRIP = 1
 # TODO: --emit-symbol-map
 CFLAGS += -O1 -g4
 CFLAGS += -profiling
-CFLAGS += -s ASSERTIONS=1 -s STACK_OVERFLOW_CHECK=1 -s SAFE_HEAP=1 -s EMULATE_FUNCTION_POINTER_CASTS=1
+CFLAGS += -s ASSERTIONS=1 -s STACK_OVERFLOW_CHECK=1 -s EMULATE_FUNCTION_POINTER_CASTS=1
+#CFLAGS += -s SAFE_HEAP=1 # would require a env::segfault definition
 .else
 CFLAGS += -Oz -g0
 .endif
