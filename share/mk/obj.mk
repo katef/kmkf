@@ -31,10 +31,13 @@ NOSTRIP = 1
 # TODO: --emit-symbol-map
 CFLAGS += -O1 -g4
 CFLAGS += -profiling
+CFLAGS += -s ASSERTIONS=1 -s STACK_OVERFLOW_CHECK=1 -s SAFE_HEAP=1 -s EMULATE_FUNCTION_POINTER_CASTS=1
 .else
 CFLAGS += -Oz -g0
 .endif
-CFLAGS += -s WASM=1
+CFLAGS += -s WASM=1 -sSTANDALONE_WASM=1
+CFLAGS += -s STRICT=1
+CFLAGS += -s MALLOC=emmalloc -s ABORTING_MALLOC=0
 CFLAGS += -Wno-warn-absolute-paths
 .endif
 
