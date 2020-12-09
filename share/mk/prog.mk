@@ -6,6 +6,7 @@
 #
 
 STRIP ?= strip
+WASM_VALIDATE ?= wasm-validate
 
 LFLAGS ?=
 
@@ -71,6 +72,11 @@ STAGE_BUILD += bin/${prog}.wasm
 .else
 MODE.bin/${prog} = 755
 STAGE_BUILD += bin/${prog}
+.endif
+
+test::
+.if ${CC:T:Memcc}
+	${WASM_VALIDATE} ${BUILD}/bin/${prog}.wasm
 .endif
 
 .endfor
