@@ -22,6 +22,7 @@ CFLAGS.${src} += -I ${dir}
 .endfor
 .endfor
 
+# wasm-strip(1) does something totally different
 .if ${CC:T:Memcc}
 NOSTRIP = 1
 .endif
@@ -35,7 +36,7 @@ CFLAGS += -s ASSERTIONS=1 -s STACK_OVERFLOW_CHECK=1 -s SAFE_HEAP=1 -s EMULATE_FU
 .else
 CFLAGS += -Oz -g0
 .endif
-CFLAGS += -s WASM=1 -sSTANDALONE_WASM=1
+CFLAGS += -s WASM=1 -s STANDALONE_WASM=1
 CFLAGS += -s STRICT=1
 CFLAGS += -s MALLOC=emmalloc -s ABORTING_MALLOC=0
 CFLAGS += -Wno-warn-absolute-paths

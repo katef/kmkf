@@ -13,6 +13,11 @@ LFLAGS ?=
 DIR += ${BUILD}/bin
 .endif
 
+.if ${CC:T:Memcc}
+# emcc seems to apply the same flags for both link and compile time
+LFLAGS += ${CFLAGS}
+.endif
+
 .if ${CC:T:Mgcc} && defined(ASAN)
 LFLAGS += -fsanitize=address
 .endif

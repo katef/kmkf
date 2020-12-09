@@ -9,6 +9,8 @@
 # emcc -r is undocumented, but suggested by an error message.
 # However it does seem to do the same job as ld -r
 LD ?= ${CC}
+# emcc seems to apply the same flags for both link and compile time
+LDRFLAGS += ${CFLAGS}
 .else
 LD ?= ld
 .endif
