@@ -37,17 +37,36 @@ LFLAGS += -lefence
 
 .for prog in ${PROG}
 
+.if ${CC:T:Memcc}
+prog::   ${BUILD}/bin/${prog}.wasm
+CLEAN += ${BUILD}/bin/${prog}.wasm
+.else
 prog::   ${BUILD}/bin/${prog}
 CLEAN += ${BUILD}/bin/${prog}
+.endif
 
+# .USE so we can pick up dependencies scattered throughout the project Makefiles
+.if ${CC:T:Memcc}
+${BUILD}/bin/${prog}: .USE
+.endif
+
+.if ${CC:T:Memcc}
+${BUILD}/bin/${prog}.wasm: ${BUILD}/bin/${prog}
+.else
 ${BUILD}/bin/${prog}:
-	${CC} -o $@ ${LFLAGS} ${.ALLSRC:M*.o} ${.ALLSRC:M*.a} ${LFLAGS.${prog}}
+.endif
+	${CC} -o $@ ${LFLAGS}${EXT} ${.ALLSRC:M*.o} ${.ALLSRC:M*.a} ${LFLAGS.${prog}}
 .if !defined(DEBUG) && !defined(NOSTRIP)
 	${STRIP} $@
 .endif
 
+.if ${CC:T:Memcc}
+MODE.bin/${prog}.wasm = 655
+STAGE_BUILD += bin/${prog}.wasm
+.else
 MODE.bin/${prog} = 755
 STAGE_BUILD += bin/${prog}
+.endif
 
 .endfor
 
