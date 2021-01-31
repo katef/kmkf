@@ -9,6 +9,9 @@ MKDIR ?= mkdir
 
 mkdir::
 
+# some awkwardness to avoid :O:u for OpenBSD make(1)
+DIR != echo ${DIR} | tr ' ' '\n' | sort | uniq
+
 # Double-colon targets are always considered out of date,
 # so even though these directories are up to date, they
 # would always be recreated. Note there's no need to
