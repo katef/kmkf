@@ -13,11 +13,15 @@ LX_CFLAGS +=
 
 .for ext in c h
 
+.if make(gen)
 ${lexer:R}.${ext}: ${lexer}
 	${LX} -l ${ext} ${LX_CFLAGS} ${LX_CFLAGS.${lexer}} < ${.ALLSRC:M*.lx} > ${lexer:R}.${ext} \
 		|| { rm -f ${lexer:R}.${ext}; false; }
+.endif
 
+.if make(gen)
 gen:: ${lexer:R}.${ext}
+.endif
 
 .endfor
 
