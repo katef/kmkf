@@ -25,6 +25,8 @@ gen:: ${lexer:R}.${ext}
 
 .endfor
 
+${lexer:R}.c: ${lexer:R}.h
+
 test::
 	${LX} -l test < ${lexer}
 
