@@ -14,26 +14,26 @@ LFLAGS ?=
 DIR += ${BUILD}/bin
 .endif
 
-.if ${CC:T:Memcc}
+.if ${CC:T:Memcc*}
 # emcc seems to apply the same flags for both link and compile time
 LFLAGS += ${CFLAGS}
 .endif
 
-.if ${CC:T:Mgcc} && defined(ASAN)
+.if ${CC:T:Mgcc*} && defined(ASAN)
 LFLAGS += -fsanitize=address
 .endif
-.if ${CC:T:Mgcc} && defined(UBSAN)
+.if ${CC:T:Mgcc*} && defined(UBSAN)
 # no unsigned-integer-overflow,implicit-conversion for gcc
 LFLAGS += -fsanitize=undefined,float-divide-by-zero,bounds
 .endif
 
-.if ${CC:T:Mclang} && defined(ASAN)
+.if ${CC:T:Mclang*} && defined(ASAN)
 LFLAGS += -fsanitize=address
 .endif
-.if ${CC:T:Mclang} && defined(MSAN)
+.if ${CC:T:Mclang*} && defined(MSAN)
 LFLAGS += -fsanitize=memory -fPIE -pie
 .endif
-.if ${CC:T:Mclang} && defined(UBSAN)
+.if ${CC:T:Mclang*} && defined(UBSAN)
 LFLAGS += -fsanitize=undefined,float-divide-by-zero,unsigned-integer-overflow,implicit-conversion,bounds
 .endif
 
@@ -43,7 +43,7 @@ LFLAGS += -lefence
 
 .for prog in ${PROG}
 
-.if ${CC:T:Memcc}
+.if ${CC:T:Memcc*}
 prog::   ${BUILD}/bin/${prog}.wasm
 CLEAN += ${BUILD}/bin/${prog}.wasm
 .else
@@ -52,11 +52,11 @@ CLEAN += ${BUILD}/bin/${prog}
 .endif
 
 # .USE so we can pick up dependencies scattered throughout the project Makefiles
-.if ${CC:T:Memcc}
+.if ${CC:T:Memcc*}
 ${BUILD}/bin/${prog}: .USE
 .endif
 
-.if ${CC:T:Memcc}
+.if ${CC:T:Memcc*}
 ${BUILD}/bin/${prog}.wasm: ${BUILD}/bin/${prog}
 .else
 ${BUILD}/bin/${prog}:
@@ -66,7 +66,7 @@ ${BUILD}/bin/${prog}:
 	${STRIP} $@
 .endif
 
-.if ${CC:T:Memcc}
+.if ${CC:T:Memcc*}
 MODE.bin/${prog}.wasm = 655
 STAGE_BUILD += bin/${prog}.wasm
 .else
@@ -75,7 +75,7 @@ STAGE_BUILD += bin/${prog}
 .endif
 
 test::
-.if ${CC:T:Memcc}
+.if ${CC:T:Memcc*}
 	${WASM_VALIDATE} ${BUILD}/bin/${prog}.wasm
 .endif
 

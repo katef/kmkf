@@ -5,7 +5,7 @@
 # See LICENCE for the full copyright terms.
 #
 
-.if ${CC:T:Memcc}
+.if ${CC:T:Memcc*}
 LD ?= ${CC}
 .else
 LD ?= ld
@@ -28,7 +28,7 @@ LDSFLAGS ?= -dylib -flat_namespace -undefined dynamic_lookup
 LDSFLAGS ?= -shared
 .endif
 
-.if ${CC:T:Mgcc} || ${CC:T:Mclang}
+.if ${CC:T:Mgcc*} || ${CC:T:Mclang*}
 .if ${SYSTEM} == Darwin
 LDSFLAGS += -macosx_version_min ${MACOSX_VERSION_MIN}
 .endif

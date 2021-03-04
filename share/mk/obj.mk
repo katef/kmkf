@@ -23,11 +23,11 @@ CFLAGS.${src} += -I ${dir}
 .endfor
 
 # wasm-strip(1) does something totally different
-.if ${CC:T:Memcc}
+.if ${CC:T:Memcc*}
 NOSTRIP = 1
 .endif
 
-.if ${CC:T:Memcc}
+.if ${CC:T:Memcc*}
 .if defined(DEBUG)
 # TODO: --emit-symbol-map
 CFLAGS += -O1 -g4
@@ -43,7 +43,7 @@ CFLAGS += -s MALLOC=emmalloc -s ABORTING_MALLOC=0
 CFLAGS += -Wno-warn-absolute-paths
 .endif
 
-.if ${CC:T:Mgcc}
+.if ${CC:T:Mgcc*}
 .if defined(DEBUG)
 CFLAGS += -std=c89 -pedantic
 #CFLAGS += -Werror
@@ -64,7 +64,7 @@ CFLAGS += -fsanitize=undefined,float-divide-by-zero,bounds
 .endif
 .endif
 
-.if ${CC:T:Mclang}
+.if ${CC:T:Mclang*}
 .if defined(DEBUG)
 CFLAGS += -std=c89 -pedantic
 #CFLAGS += -Werror
@@ -93,7 +93,7 @@ CFLAGS += -g
 CFLAGS += -DNDEBUG
 .endif
 
-.if ${CC:T:Mgcc} || ${CC:T:Mclang}
+.if ${CC:T:Mgcc*} || ${CC:T:Mclang*}
 .if ${SYSTEM} == Darwin
 CFLAGS += -mmacosx-version-min=${MACOSX_VERSION_MIN}
 .endif

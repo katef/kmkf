@@ -5,7 +5,7 @@
 # See LICENCE for the full copyright terms.
 #
 
-.if ${CC:T:Memcc}
+.if ${CC:T:Memcc*}
 LD ?= ${CC}
 # emcc seems to apply the same flags for both link and compile time
 LDRFLAGS += ${CFLAGS}
@@ -66,7 +66,7 @@ LDRFLAGS.${part} += -exported_symbols_list ${BUILD}/${SYMS.${part}}
 
 ${BUILD}/lib/${part}.o:
 	${LD} -r -o $@ ${.ALLSRC:M*.o} ${LDRFLAGS} ${LDRFLAGS.${part}}
-.if !${CC:T:Memcc}
+.if !${CC:T:Memcc*}
 .if ${SYSTEM} != Darwin
 .if !empty(SYMS.${part})
 	${OBJCOPY} --keep-global-symbols=${BUILD}/${SYMS.${part}} $@ $@
@@ -79,7 +79,7 @@ ${BUILD}/lib/${part}.o:
 
 ${BUILD}/lib/${part}.opic:
 	${LD} -r -o $@ ${.ALLSRC:M*.opic} ${LDRFLAGS} ${LDRFLAGS.${part}}
-.if !${CC:T:Memcc}
+.if !${CC:T:Memcc*}
 .if ${SYSTEM} != Darwin
 .if !empty(SYMS.${part})
 	${OBJCOPY} --keep-global-symbols=${BUILD}/${SYMS.${part}} $@ $@
