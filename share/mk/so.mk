@@ -23,7 +23,8 @@ LIBEXT ?= so
 .endif
 
 .if ${SYSTEM} == Darwin
-LDSFLAGS ?= -dylib -flat_namespace -undefined dynamic_lookup
+XCODE_SELECT_P != xcode-select -p
+LDSFLAGS ?= -dylib -flat_namespace -undefined dynamic_lookup -L${XCODE_SELECT_P}/SDKs/MacOSX.sdk/usr/lib -lSystem
 .else
 LDSFLAGS ?= -shared
 .endif
