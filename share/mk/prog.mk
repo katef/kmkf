@@ -41,6 +41,10 @@ LFLAGS += -fsanitize=undefined,float-divide-by-zero,unsigned-integer-overflow,im
 LFLAGS += -lefence
 .endif
 
+.if ${CC:T:Mclang} && defined(FUZZER)
+LFLAGS += -fsanitize=fuzzer
+.endif
+
 .for prog in ${PROG}
 
 .if ${CC:T:Memcc*}

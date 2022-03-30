@@ -85,6 +85,9 @@ CFLAGS += -fsanitize=memory -fPIE
 .if defined(UBSAN)
 CFLAGS += -fsanitize=undefined,float-divide-by-zero,unsigned-integer-overflow,implicit-conversion,bounds
 .endif
+.if defined(FUZZER)
+CFLAGS += -fsanitize=fuzzer
+.endif
 .endif
 
 .if defined(DEBUG)
