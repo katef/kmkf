@@ -56,7 +56,7 @@
 		<title>Input</title>
 
 <synopsis>LD               ?= ld
-OBJCOPY          ?= ld
+OBJCOPY          ?= objcopy
 LDRFLAGS         +=
 LDRFLAGS.<replaceable>part</replaceable> +=
 SYMS.<replaceable>part</replaceable>     += <replaceable>file</replaceable>
