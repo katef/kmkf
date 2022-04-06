@@ -57,6 +57,7 @@
 
 <synopsis>LD               ?= ld
 OBJCOPY          ?= objcopy
+NM               ?= nm -P
 LDRFLAGS         +=
 LDRFLAGS.<replaceable>part</replaceable> +=
 SYMS.<replaceable>part</replaceable>     += <replaceable>file</replaceable>
