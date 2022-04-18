@@ -58,6 +58,7 @@
 
 <synopsis>DEP    ?= ${CC} -M
 DFLAGS ?= -MT <remark># provided per ${CC}</remark>
+DSTD ?= c99 <remark># defaults to ${CSTD} if present</remark>
 
 BUILD            = <replaceable>dir</replaceable>
 INCDIR          += <replaceable>dir</replaceable>

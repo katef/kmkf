@@ -12,6 +12,10 @@ MACOSX_VERSION_MIN ?= 10.6
 
 CFLAGS_PIC ?= -fPIC
 
+# Somewhat opinionated here; this is per-project rather than per file
+# because I don't want to mix different standards within a project.
+CSTD ?= c99
+
 .for dir in ${INCDIR}
 CFLAGS += -I ${dir}
 .endfor
@@ -45,14 +49,14 @@ CFLAGS += -Wno-warn-absolute-paths
 
 .if ${CC:T:Mgcc*}
 .if defined(DEBUG)
-CFLAGS += -std=c89 -pedantic
+CFLAGS += -std=${CSTD} -pedantic
 #CFLAGS += -Werror
 CFLAGS += -Wall -Wextra -Wno-system-headers
 CFLAGS += -ggdb
 CFLAGS += -O0 # or -Og if you have it
 CFLAGS += -fno-omit-frame-pointer
 .else
-CFLAGS += -std=c89 -pedantic
+CFLAGS += -std=${CSTD} -pedantic
 CFLAGS += -O3
 .endif
 .if defined(ASAN)
@@ -66,14 +70,14 @@ CFLAGS += -fsanitize=undefined,float-divide-by-zero,bounds
 
 .if ${CC:T:Mclang*}
 .if defined(DEBUG)
-CFLAGS += -std=c89 -pedantic
+CFLAGS += -std=${CSTD} -pedantic
 #CFLAGS += -Werror
 CFLAGS += -Wall -Wextra -Wno-system-headers
 CFLAGS += -Wno-padded # padding is not an error
 CFLAGS += -O0
 CFLAGS += -fno-omit-frame-pointer
 .else
-CFLAGS += -std=c89 -pedantic
+CFLAGS += -std=${CSTD} -pedantic
 CFLAGS += -O3
 .endif
 .if defined(ASAN)

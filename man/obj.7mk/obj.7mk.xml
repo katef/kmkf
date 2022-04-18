@@ -83,6 +83,7 @@
 		-->
 
 <synopsis>CC               ?= cc
+CSTD             ?= c99
 CFLAGS           += <replaceable>...</replaceable>
 CFLAGS.<replaceable>name</replaceable>.c += <replaceable>...</replaceable>
 
