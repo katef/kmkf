@@ -23,7 +23,7 @@ DFLAGS.${src} += -I ${dir}
 
 .if ${CC:T:Mclang*} || ${CC:T:Mgcc*} || ${CC:T:Memcc*}
 DFLAGS += -MT ${@:R}.o
-DFLAGS += -ansi -pedantic
+DFLAGS += -std=c89 -pedantic
 .endif
 
 # This is worth some explanation.

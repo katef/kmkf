@@ -73,7 +73,7 @@ CFLAGS += -Wno-padded # padding is not an error
 CFLAGS += -O0
 CFLAGS += -fno-omit-frame-pointer
 .else
-CFLAGS += -ansi -pedantic
+CFLAGS += -std=c89 -pedantic
 CFLAGS += -O3
 .endif
 .if defined(ASAN)
