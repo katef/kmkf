@@ -24,6 +24,21 @@ SEDFLAGS ?=
 
 LDRFLAGS ?=
 
+# Workaround for a bug in FreeBSD's objcopy, where --keep-global-symbols=file does not
+# make *other* symbols local, as giving --keep-global-symbol=name (that's singular)
+# for each symbol would. I reported this here: https://sourceforge.net/p/elftoolchain/tickets/610/
+#
+# My workaround here is to override ${OBJCOPY} with a wrapper that converts the
+# that converts the --keep-global-symbols=file argument to expand out the file to
+# --keep-global-symbol=name (-G for short) for each symbol, and then call the original ${OBJCOPY}.
+#
+# This is illegible, but it does keep the workaround in one place (we don't need
+# an external script), and it keeps the conditional logic out of the callers.
+objcopy_ver != ${OBJCOPY} --version
+.if ${objcopy_ver:M*elftoolchain*}
+OBJCOPY := f() { $$$$1 $$$$(cat $$$${2\#\#--keep-global-symbols=} | sed s,^,-G,g) $$$$3 $$$$4; }; f ${OBJCOPY}
+.endif
+
 .if empty(DIR:M${BUILD}/lib)
 DIR += ${BUILD}/lib
 .endif
