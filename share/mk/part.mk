@@ -36,7 +36,7 @@ LDRFLAGS ?=
 # an external script), and it keeps the conditional logic out of the callers.
 objcopy_ver != ${OBJCOPY} --version
 .if ${objcopy_ver:M*elftoolchain*}
-OBJCOPY := f() { $$$$1 $$$$(cat $$$${2\#\#--keep-global-symbols=} | sed s,^,-G,g) $$$$3 $$$$4; }; f ${OBJCOPY}
+OBJCOPY := f() { $$$$1 $$$$(${SED} s,^,-G,g $$$${2\#\#--keep-global-symbols=}) $$$$3 $$$$4; }; f ${OBJCOPY}
 .endif
 
 .if empty(DIR:M${BUILD}/lib)
