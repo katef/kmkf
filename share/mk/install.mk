@@ -44,7 +44,7 @@ install:: ${stage}
 .endfor
 
 # For "proper" package installation, I would expect a package manager to
-# install to a staging area, take just what it needs, and provided its
+# install to a staging area, take just what it needs, and provide its
 # own uninstallation.
 #
 # An uninstall target is provided largely as convenience. It's tricky,
