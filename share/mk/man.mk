@@ -45,9 +45,11 @@ DBXSLT_FLAGS += --param man.output.quietly 1
 DIR += ${BUILD}/man
 .endif
 
-doc::
+.if make(doc)
+.BEGIN::
 	# checking for XML catalog entry for Docbook XSLT
 	${XSLTPROC} --nonet --nowrite ${DBXSLT_MAN}
+.endif
 
 .for man in ${MAN}
 
