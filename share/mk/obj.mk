@@ -50,7 +50,7 @@ CFLAGS += -Wno-warn-absolute-paths
 .if ${CC:T:Mgcc*}
 .if defined(DEBUG)
 CFLAGS += -std=${CSTD} -pedantic
-#CFLAGS += -Werror
+CFLAGS += -Werror
 CFLAGS += -Wall -Wextra -Wno-system-headers
 CFLAGS += -ggdb
 CFLAGS += -O0 # or -Og if you have it
@@ -71,7 +71,7 @@ CFLAGS += -fsanitize=undefined,float-divide-by-zero,bounds
 .if ${CC:T:Mclang*}
 .if defined(DEBUG)
 CFLAGS += -std=${CSTD} -pedantic
-#CFLAGS += -Werror
+CFLAGS += -Werror
 CFLAGS += -Wall -Wextra -Wno-system-headers
 CFLAGS += -Wno-padded # padding is not an error
 CFLAGS += -O0
