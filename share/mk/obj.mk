@@ -90,7 +90,7 @@ CFLAGS += -fsanitize=memory -fPIE
 CFLAGS += -fsanitize=undefined,float-divide-by-zero,unsigned-integer-overflow,implicit-conversion,bounds
 .endif
 .if defined(FUZZER)
-CFLAGS += -fsanitize=fuzzer
+CFLAGS += -fsanitize=fuzzer-no-link
 .endif
 .endif
 
