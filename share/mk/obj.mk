@@ -94,6 +94,11 @@ CFLAGS += -fsanitize=fuzzer-no-link
 .endif
 .endif
 
+# A workaround for CI in github where the linker doesn't support dwarf-5
+.if ${CC:T:Mclang*} && defined(FUZZER)
+CFLAGS += -gdwarf-4
+.endif
+
 .if defined(DEBUG)
 CFLAGS += -g
 .else
