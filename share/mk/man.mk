@@ -54,7 +54,7 @@ DIR += ${BUILD}/man
 .for man in ${MAN}
 
 ${BUILD}/${man:H}/${man:T:R}: ${man}
-	${XSLTPROC} ${XSLT_FLAGS} ${XML_FLAGS} ${DBXSLT_FLAGS} ${XML_FLAGS.${src}} \
+	${XSLTPROC} ${XSLT_FLAGS} ${XML_FLAGS} ${DBXSLT_FLAGS} ${XML_FLAGS.${man}} \
 		--stringparam man.output.base.dir ${BUILD}/${man:H}/ \
 		${DBXSLT_MAN} ${man}
 
@@ -71,7 +71,7 @@ STAGE_COPY += ${BUILD}/${man:H}/${man:T:R}.gz
 DIR.${BUILD}/${man:H}/${man:T:R}.gz = man/man${man:T:R:E}
 
 test::
-	${XMLLINT} --noout --dtdattr ${XMLLINT_FLAGS} ${XML_FLAGS} ${XML_FLAGS.${src}} ${man}
+	${XMLLINT} --noout --dtdattr ${XMLLINT_FLAGS} ${XML_FLAGS} ${XML_FLAGS.${man}} ${man}
 
 .endfor
 
