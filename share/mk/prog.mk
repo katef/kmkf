@@ -65,7 +65,7 @@ ${BUILD}/bin/${prog}.wasm: ${BUILD}/bin/${prog}
 .else
 ${BUILD}/bin/${prog}:
 .endif
-	${CC} -o $@ ${LFLAGS}${EXT} ${.ALLSRC:M*.o} ${.ALLSRC:M*.a} ${LFLAGS.${prog}}
+	${CC} -o $@ ${.ALLSRC:M*.o} ${.ALLSRC:M*.a} ${LFLAGS}${EXT} ${LFLAGS.${prog}}
 .if !defined(DEBUG) && !defined(NOSTRIP)
 	${STRIP} $@
 .endif
