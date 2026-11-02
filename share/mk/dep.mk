@@ -54,7 +54,7 @@ DFLAGS += -std=${DSTD} -pedantic
 CLEAN += ${BUILD}/${src:R}.mk
 
 ${BUILD}/${src:R}.mk: ${src}
-	${DEP} -o $@ ${DFLAGS} ${DFLAGS.${src}} -c ${.ALLSRC:M*.c}
+	${DEP} -o $@ ${DFLAGS} ${DFLAGS.${src}} ${.ALLSRC:M*.c}
 
 dep:: ${BUILD}/${src:R}.mk
 .if exists(${BUILD}/${src:R}.mk)
